@@ -10,4 +10,6 @@ public class AutocriticSpringbootProjApplication {
 		SpringApplication.run(AutocriticSpringbootProjApplication.class, args);
 	}
 
+
+
 }
