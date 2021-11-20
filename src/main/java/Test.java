@@ -8,9 +8,10 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 public class Test {
@@ -18,11 +19,9 @@ public class Test {
         System.out.println("hello");
 
 
-
-
         //delcare AWS credentials
         AWSCredentials awsCredentials = new BasicAWSCredentials(
-                "AKIAQNUHEPFEGYHK6KU6","46fiA27SLsAU0zp7N6TgmOYJ7hV7xKZXdS/Gx/lP"
+                "AKIAQNUHEPFEGYHK6KU6", "46fiA27SLsAU0zp7N6TgmOYJ7hV7xKZXdS/Gx/lP"
         );
 
         //initiate Amazon s3 client database
@@ -34,29 +33,53 @@ public class Test {
         //create bucket
         String bucket_name = "test12345234123423523465bnsidlfghjilds";
 
-        try{
+        try {
             s3.createBucket(bucket_name);
-        }
-        catch(AmazonS3Exception e){
+        } catch (AmazonS3Exception e) {
             System.out.println(e.getErrorMessage());
         }
 
         //list out buckets
         List<Bucket> buckets = s3.listBuckets();
-        for(Bucket b:buckets){
+        for (Bucket b : buckets) {
             System.out.println("* " + b.getName());
         }
-        //create file and put into bucket
+        //create file
         File f1 = new File("filename.txt");
         f1.createNewFile();
-        try{
-            s3.putObject(bucket_name, "test1",f1);
-        }catch(AmazonServiceException e){
+        //write file
+        try {
+            FileWriter myWriter = new FileWriter(f1);
+            myWriter.write("successfully written into file.");
+            myWriter.close();
+        } catch (IOException e) {
+            System.out.println("could not write into file!");
+            e.printStackTrace();
+        }
+
+        //put file into bucket
+        String fileName = "test1"; //fileName in bucket
+        try {
+            s3.putObject(bucket_name, fileName, f1);
+        } catch (AmazonServiceException e) {
             System.err.println(e.getErrorMessage());
             System.exit(1);
         }
 
-
-   }
+        //Read file from bucket
+        S3Object object = s3.getObject((new GetObjectRequest(bucket_name, fileName)));
+        //InputStream objectData = object.getObjectContent(); //???
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(object.getObjectContent())); //create Buffer reader to read from file
+            String lineRead;
+            while ((lineRead = reader.readLine()) != null) {
+                System.out.println(lineRead);
+            }
+            //objectData.close(); // ???
+        } catch (IOException e) {
+            System.out.println("Could not read from file");
+            e.printStackTrace();
+        }
+    }
 }
 
