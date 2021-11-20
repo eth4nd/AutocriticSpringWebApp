@@ -1,4 +1,5 @@
 
+import Model.User.User;
 import com.amazonaws.*;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -9,7 +10,7 @@ import com.amazonaws.services.mq.model.NotFoundException;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
 import com.amazonaws.services.s3.AmazonS3;
-import com.autocritic.autocriticspringbootproj.profile.User;
+import com.autocritic.autocriticspringbootproj.profile.UserProfile;
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
@@ -99,10 +100,10 @@ public class Test {
 
         //write object into file
         String fileName2 = "objectsTest";
-        User u1 = new User(UUID.randomUUID(), "user1", "test1" );
-        User u2 = new User(UUID.randomUUID(), "user2", "test1" );
-        User u3 = new User(UUID.randomUUID(), "user3", "test1" );
-        User u4 = new User(UUID.randomUUID(), "user4", "test1" );
+        User u1 = new User( "user1", "test1" );
+        User u2 = new User("user2", "test1" );
+        User u3 = new User("user3", "test1" );
+        User u4 = new User("user4", "test1" );
         ArrayList<User> list1 = new ArrayList<>(); //User arraylist created to be written into file
         list1.add(u1);
         list1.add(u2);
