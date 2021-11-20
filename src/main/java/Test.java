@@ -157,6 +157,7 @@ public class Test {
             }
 
             //read object from container file/local file
+            System.out.println("Reading object....\n");
             FileInputStream fis = new FileInputStream(localFile);
             ObjectInputStream ois = new ObjectInputStream(fis);
             ArrayList<User> testList = new ArrayList<>();
