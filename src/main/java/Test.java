@@ -80,6 +80,13 @@ public class Test {
             System.out.println("Could not read from file");
             e.printStackTrace();
         }
+
+        try{
+            s3.deleteObject(bucket_name, fileName);
+        }catch(AmazonServiceException e){
+            System.out.println("delete failed");
+            System.exit(1);
+        }
     }
 }
 
