@@ -1,10 +1,11 @@
 package com.autocritic.autocriticspringbootproj.profile;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
 
     private UUID userProfileId;
     private String username;
