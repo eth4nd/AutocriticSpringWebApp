@@ -16,7 +16,7 @@ public class UserProfileService {
         this.userProfileDataAccessService = userProfileDataAccessService;
     }
 
-    List<UserProfile> getUserProfiles(){
+    List<User> getUserProfiles(){
         return userProfileDataAccessService.getUserProfiles();
     }
 
