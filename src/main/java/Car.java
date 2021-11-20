@@ -5,7 +5,6 @@ public class Car {
 
     /**
      * Constructor for Car objects, Cars should be unique
-     *
      * @param carDescription The description of the car
      * @param price The price of the car
      * @param averageRating The average rating of the car
@@ -19,7 +18,6 @@ public class Car {
 
     /**
      * Getter method for carDescription
-     *
      * @return carDescription
      */
     public String getCarDescription()
@@ -29,7 +27,6 @@ public class Car {
 
     /**
      * Getter method for price
-     *
      * @return price
      */
     public double getPrice()
@@ -39,7 +36,6 @@ public class Car {
 
     /**
      * Getter method for averageRating
-     *
      * @return averageRating
      */
     public double getAverageRating()
