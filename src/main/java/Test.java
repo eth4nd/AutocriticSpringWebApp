@@ -10,7 +10,7 @@ import com.amazonaws.services.mq.model.NotFoundException;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
 import com.amazonaws.services.s3.AmazonS3;
-import com.autocritic.autocriticspringbootproj.profile.UserProfile;
+
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
