@@ -14,6 +14,8 @@ import com.amazonaws.services.s3.model.BucketAccelerateConfiguration;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BucketManager {
@@ -60,22 +62,27 @@ public class BucketManager {
     }
 
     //test
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         BucketManager b = new BucketManager();
         FileManager f = new FileManager();
         File users = new File(UserDatabase.LocalFilename);
-        User johnDoe = new User("JohnDoe2","password2");
+        User user = new User("mary","pass3");
         UserDatabase userDatabase = new UserDatabase();
 
 
         b.listAllBuckets();
+        //f.deleteFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
 //        b.createBucket("cs151projectautocritictest");
 //        b.listAllBuckets();
         //b.deleteBucket("newbucket111111112398471239487123908");
-        //userDatabase.insert(johnDoe,"test",b.getS3Database());
+        userDatabase.insert(user,"test",b.getS3Database());
         //f.insertFileIntoBucket(BucketManager.bucketName, UserDatabase.Filename,users);
-        //f.printFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
-        userDatabase.downloadUserFile(b.getS3Database());
+        f.printFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
+        //userDatabase.downloadUserFile(b.getS3Database());
+        List<User> listOfUsers =  userDatabase.downloadUser("placeholder", b.getS3Database(),100);
+        for(User u :listOfUsers){
+            System.out.println(u);
+        }
         System.out.println("done");
     }
 }

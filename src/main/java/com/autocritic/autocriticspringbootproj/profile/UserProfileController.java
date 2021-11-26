@@ -1,4 +1,4 @@
-package com.autocritic.autocriticspringbootproj.profile;
+/*package com.autocritic.autocriticspringbootproj.profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration;
@@ -39,3 +39,4 @@ public class UserProfileController {
 
 
 }
+*/

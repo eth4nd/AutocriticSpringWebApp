@@ -1,4 +1,4 @@
-package com.autocritic.autocriticspringbootproj.profile;
+/*package com.autocritic.autocriticspringbootproj.profile;
 
 import com.autocritic.autocriticspringbootproj.datastore.FakeUserProfileDataStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,3 +20,4 @@ public class UserProfileDataAccessService {
         return fakeUserProfileDataStore.getUserProfiles();
     }
 }
+*/

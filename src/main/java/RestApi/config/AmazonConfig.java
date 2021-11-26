@@ -1,4 +1,4 @@
-//package com.autocritic.autocriticspringbootproj.config;
+//package RestApi.config;
 //
 //import com.amazonaws.auth.AWSCredentials;
 //import com.amazonaws.auth.AWSStaticCredentialsProvider;

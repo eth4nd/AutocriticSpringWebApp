@@ -1,5 +1,5 @@
 package Model.User;
-
+/*
 public class LoginSystem {
     public static boolean UserLogin(String username, String password, UserDatabase u)
     {
@@ -20,3 +20,4 @@ public class LoginSystem {
             return false;
     }
 }
+*/
