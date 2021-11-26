@@ -3,7 +3,7 @@ import Model.Review.Review;
 
 
 import java.util.*;
-public class User {
+public class User{
     private String username;
     private String password;
     private ArrayList<Review> userReviews = new ArrayList<>();
@@ -76,5 +76,10 @@ public class User {
     public ArrayList<Review> getReviews()
     {
         return this.userReviews;
+    }
+
+    @Override
+    public String toString(){
+        return this.getUsername();
     }
 }
