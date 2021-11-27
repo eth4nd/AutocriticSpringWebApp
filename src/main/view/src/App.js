@@ -4,7 +4,8 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import User from "./Components/Data/User.js"
 import {TextField} from '@material-ui/core'
-
+import ReviewTextArea from "./Components/Text/ReviewTextArea.js"
+import UserTextArea from "./Components/Text/UserTextArea.js"
 
 // const User = () =>{
 //   const [userProfiles,setUserProfiles] = useState([]);
@@ -41,8 +42,12 @@ import {TextField} from '@material-ui/core'
 function App() {
   return (
     <div className="App">
-      <TextField label="Enter Review" color="secondary"multiline variant="outlined"/>
+      <TextField label="Enter Review" 
+      color="secondary" 
+      multiline 
+      variant="outlined" />
      <User />
+     <UserTextArea/>
     </div>
   );
 }
