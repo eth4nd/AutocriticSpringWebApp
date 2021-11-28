@@ -7,11 +7,14 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import javax.print.attribute.standard.Media;
 import java.util.LinkedHashMap;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("api/v1/user")
@@ -25,9 +28,11 @@ public class UserController {
         this.userService = userService;
     }
 
+
     @GetMapping
     public List<User> getUsers()
     {
+        System.out.println("getmapping called");
         return userService.getUsers();
     }
 

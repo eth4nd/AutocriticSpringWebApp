@@ -66,7 +66,7 @@ public class BucketManager {
         BucketManager b = new BucketManager();
         FileManager f = new FileManager();
         File users = new File(UserDatabase.LocalFilename);
-        User user = new User("mary","pass3");
+        User user = new User("test","pass10");
         UserDatabase userDatabase = new UserDatabase();
 
 
