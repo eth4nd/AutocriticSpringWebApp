@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("api/v1/review")
 @CrossOrigin("*")
 public class ReviewController {
 

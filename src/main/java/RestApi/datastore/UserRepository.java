@@ -15,8 +15,9 @@ import java.util.concurrent.TimeUnit;
 
 @Repository
 public class UserRepository {
-
-    private List<User> USERS;
+    //MIGHT HAVE TO USE STATIC INORDER TO MODIFY USERS FROM OUTSIDE
+    //private static List<User> USERS = new ArrayList<>();
+    private  List<User> USERS;
     BucketManager bucketManager;
     UserDatabase userDatabase;
 
@@ -28,6 +29,7 @@ public class UserRepository {
 
     }
 
+    //might have to make it static
     //private static final List<User> USERS = new ArrayList<>();
 //    //static gets called first then constructor gets called after
 //    static {
