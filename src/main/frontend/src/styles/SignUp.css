@@ -1,0 +1,87 @@
+.signup {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menuContainer {
+    width: 45%;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menuContainer:hover {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in;
+}
+
+.signupMenu, .loginMenu {
+    margin: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    flex-direction: column;
+}
+
+p {
+    font-weight: bolder;
+    font-style: italic;
+    margin-bottom: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: underline;
+}
+
+label {
+    font-weight: bolder;
+    font-size: larger;
+    margin-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+input[type=text] {
+    height: 30px;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 0;
+}
+
+input[type=submit] {
+    margin-top: 10px;
+    margin-left: 2px;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid white;
+    outline: 3px solid black;
+    background: black;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+input[type=submit]:hover {
+    margin-top: 10px;
+    margin-left: 2px;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid black;
+    outline: 3px solid white;
+    background: white;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+}
