@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
+import Review from './pages/Review'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/review/:name' element={<Review />} />
           </Routes>
           <Footer />
         </Router>

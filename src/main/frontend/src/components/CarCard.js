@@ -9,7 +9,9 @@ function CarCard({ image, name, price }) {
             <div>
                 <h1>{name}</h1>
                 <h2>${price.toLocaleString()}</h2>
-                <button><Link to={`/${name}`}>WRITE A REVIEW</Link></button>
+                <button>
+                    <Link to={`/review/`+name}>WRITE A REVIEW</Link>
+                </button>
             </div>
         </div>
     )
