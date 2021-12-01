@@ -55,7 +55,7 @@ public class UserController {
 
 
 
-    //grabs uploads new user into database
+    //uploads new user into database
     @PostMapping(path="signUp",
             consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
             produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
@@ -75,7 +75,7 @@ public class UserController {
         userDatabase.downloadUserFile(b.getS3Database());
     }
 
-    //grabs uploads new user into database
+    //search for user in database
     @PostMapping(path="logIn",
             consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
             produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
@@ -84,8 +84,16 @@ public class UserController {
         UserDatabase userDatabase = new UserDatabase();
         BucketManager b = new BucketManager();
         LinkedHashMap<String,String> element = data;
+        boolean login;
         System.out.println(data.getClass());
-        String username = (String)data.get("username");
+        //create new user from entered data
+        User user = new User((String)data.get("username"),(String)data.get("password"));
+        //grab list of users from database
+        List<User> listOfUsers = userDatabase.downloadUser("placeholder",b.getS3Database(),100);
+        //check if user entered is in user database
+        login = userDatabase.searchUser(user,listOfUsers);
 
+        System.out.println(login);
+        RestServiceLogIn.setLogin(login); //if user found, set login to true to direct user to home page
     }
 }

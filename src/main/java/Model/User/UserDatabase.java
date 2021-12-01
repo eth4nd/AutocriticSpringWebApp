@@ -102,8 +102,8 @@ public class UserDatabase implements Model {
                 if(!sc.hasNext()){
                     return listOfUsers;
                 }
-                listOfUsers.add(new User(sc.next(),""));
-                sc.next();
+                listOfUsers.add(new User(sc.next(),sc.next()));
+
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -114,6 +114,12 @@ public class UserDatabase implements Model {
     //search for user within a list of Users
     public boolean searchUser(User search, List<User> listOfUsers){
         for(User u :listOfUsers){
+            /*
+            System.out.println
+                    ("comparing " + search.getUsername() + " and " + u.getUsername() + " = " + search.getUsername().equals(u.getUsername()));
+            System.out.println
+                    ("comparing " + search.getPassword() + " and " + u.getPassword() + " = " + search.getPassword().equals(u.getPassword()));
+            */
             if(search.equals(u)){
                 return true;
             }
