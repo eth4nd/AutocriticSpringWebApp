@@ -1,0 +1,51 @@
+.carCard {
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.carCard:hover {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+.carCard .carImage {
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: grey;
+}
+
+.carCard h1 {
+    margin-left: 20px;
+}
+
+.carCard h2 {
+    margin-left: 20px;
+    color: green;
+}
+
+.carCard button a {
+    color: white;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.carCard button {
+    margin-left: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid white;
+    outline: 3px solid black;
+    background: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+}

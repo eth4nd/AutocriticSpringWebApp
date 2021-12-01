@@ -1,0 +1,29 @@
+.home {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.headerContainer h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
+}
+
+.headerContainer p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.carList {
+    width: 70vw;
+    height: auto;
+    display: table-column;
+    place-items: center;
+}

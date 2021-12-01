@@ -6,23 +6,30 @@ import Model.Database.BucketManager;
 import Model.User.User;
 import Model.User.UserDatabase;
 //import RestApi.user.User;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+
 @Repository
 public class UserRepository {
-
-    private List<User> USERS;
+    //MIGHT HAVE TO USE STATIC INORDER TO MODIFY USERS FROM OUTSIDE
+    //private static List<User> USERS = new ArrayList<>();
+    private  List<User> USERS;
+    BucketManager bucketManager;
+    UserDatabase userDatabase;
 
     public UserRepository(){
-        BucketManager bucketManager = new BucketManager();
-        UserDatabase userDatabase = new UserDatabase();
+        this.bucketManager = new BucketManager();
+        this.userDatabase = new UserDatabase();
         //load users into the user repository for frontend
         USERS = userDatabase.downloadUser("placeholder", bucketManager.getS3Database(),100);
 
     }
 
+    //might have to make it static
     //private static final List<User> USERS = new ArrayList<>();
 //    //static gets called first then constructor gets called after
 //    static {
@@ -36,7 +43,18 @@ public class UserRepository {
 //
 //    }
 
+//    public void addUser(User user){
+//        USERS.add(user);
+//    }
+
     public List<User> getUsers(){
+//        System.out.println("repository called getUser");
+//        for(User u:USERS){
+//            System.out.println(u.getUsername() + ", ");
+//        }
+//        System.out.println("");
+        //USERS.add(new User("test","test"));
+        USERS =userDatabase.downloadUser("placeholder", bucketManager.getS3Database(),100);
         return USERS;
     }
 }

@@ -1,7 +1,5 @@
 package Model.Database;
 
-import Model.Car.Car;
-import Model.Car.CarDatabase;
 import Model.User.User;
 import Model.User.UserDatabase;
 import com.amazonaws.AmazonServiceException;
@@ -68,11 +66,8 @@ public class BucketManager {
         BucketManager b = new BucketManager();
         FileManager f = new FileManager();
         File users = new File(UserDatabase.LocalFilename);
-        User user = new User("mary","pass3");
-        Car car = new Car(2022,"Tesla","Model-S", 12900);
-        File cars = new File(CarDatabase.LocalFilename);
+        User user = new User("test","pass10");
         UserDatabase userDatabase = new UserDatabase();
-        CarDatabase carDatabase = new CarDatabase();
 
 
         b.listAllBuckets();
@@ -80,22 +75,13 @@ public class BucketManager {
 //        b.createBucket("cs151projectautocritictest");
 //        b.listAllBuckets();
         //b.deleteBucket("newbucket111111112398471239487123908");
-      //  userDatabase.insert(user,"test",b.getS3Database());
-      //  carDatabase.insert(car,"test",b.getS3Database());
-        carDatabase.insert(car,"test",b.getS3Database());
-        //f.insertFileIntoBucket(BucketManager.bucketName, UserDatabase.Filename,users); add file to bucket
-        f.insertFileIntoBucket(BucketManager.bucketName, carDatabase.Filename,cars);
+        userDatabase.insert(user,"test",b.getS3Database());
+        //f.insertFileIntoBucket(BucketManager.bucketName, UserDatabase.Filename,users);
         f.printFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
-        f.printFileFromBucket(BucketManager.bucketName,CarDatabase.Filename);
         //userDatabase.downloadUserFile(b.getS3Database());
         List<User> listOfUsers =  userDatabase.downloadUser("placeholder", b.getS3Database(),100);
         for(User u :listOfUsers){
             System.out.println(u);
-        }
-        List<Car> listOfCars = carDatabase.downloadCar("test",b.getS3Database(),100);
-        for(Car c: listOfCars)
-        {
-            System.out.println(c.toString());
         }
         System.out.println("done");
     }
