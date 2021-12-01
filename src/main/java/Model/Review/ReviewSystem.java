@@ -9,6 +9,5 @@ public class ReviewSystem {
     {
         Review review1 = new Review(review, user, car, rating);
         car.storeReview(review1);
-        user.storeReview(review1);
     }
 }

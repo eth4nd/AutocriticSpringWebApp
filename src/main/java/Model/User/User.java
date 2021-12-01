@@ -1,12 +1,12 @@
 package Model.User;
 import Model.Review.Review;
+import interfaces.Model;
 
 
 import java.util.*;
-public class User{
+public class User implements Model {
     private String username;
     private String password;
-    private ArrayList<Review> userReviews = new ArrayList<>();
 
 
     /**
@@ -50,7 +50,7 @@ public class User{
      */
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, userReviews);
+        return Objects.hash(username, password);
     }
 
     /**
@@ -62,27 +62,8 @@ public class User{
         return this.username;
     }
 
-    /**
-     * stores users reviews in userReviews arraylist
-     * @param r, users' new review on a car
-     */
-    public void storeReview(Review r)
-    {
-        userReviews.add(r);
-    }
-
-    /**
-     * getter method for userReviews arraylist
-     * @return userReviews
-     */
-
-    public ArrayList<Review> getReviews()
-    {
-        return this.userReviews;
-    }
-
     @Override
     public String toString(){
-        return this.getUsername();
+        return "USER: " + this.getUsername() + " PASSWORD: " + this.getPassword();
     }
 }

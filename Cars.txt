@@ -1,0 +1,4 @@
+2012,Toyota,Corolla,12000.0
+2011,Honda,Civic,8700.0
+2022,Tesla,Model-S,12900.0
+`1`
