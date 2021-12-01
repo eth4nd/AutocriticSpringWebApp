@@ -10,6 +10,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import interfaces.Model;
+import interfaces.ModelDatabase;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserDatabase implements Model {
+public class UserDatabase implements ModelDatabase {
     public static final String LocalFilename = "Users.txt"; //local file name
     public static final String Filename = "USERS"; //file name in s3 bucket database
 
@@ -52,15 +53,21 @@ public class UserDatabase implements Model {
     }
 
     @Override
-    public void delete(User u, String Filename,AmazonS3 s3) {
+    public void delete(Model user, String Filename,AmazonS3 s3) {
 
     }
 
     //insert user into file and store it in AWS database
     @Override
-    public void insert(User u, String Filename,AmazonS3 s3) {
+    public void insert(Model user, String Filename,AmazonS3 s3) {
         FileManager fm = new FileManager();
         BufferedWriter out = null;
+        if(!(user instanceof User))
+        {
+            System.out.println("wrong model class");
+            return;
+        }
+        User u = (User) user;
         String username = u.getUsername();
         String password = u.getPassword();
 
@@ -85,7 +92,7 @@ public class UserDatabase implements Model {
     }
 
     @Override
-    public void take(User u, String Filename,AmazonS3 s3) {
+    public void take(Model user, String Filename,AmazonS3 s3) {
 
     }
 

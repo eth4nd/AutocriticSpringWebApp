@@ -1,8 +1,10 @@
 //Test car
 export const CarList = [
     {
-        name: '2022 Honda Civic Type-R',
+        year: '2022',
+        make: 'Honda',
+        model: 'Civic Type-R',
         image: null,
-        price: 21700
+        MSRPprice: 21700
     }
 ]
