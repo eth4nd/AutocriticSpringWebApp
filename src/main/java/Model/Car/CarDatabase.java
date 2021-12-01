@@ -76,7 +76,7 @@ public class CarDatabase implements ModelDatabase {
             out = new BufferedWriter(myWriter);
 
             //write car into file
-            out.write(c.carName()+","+c.getMSRP());
+            out.write(c.carName()+","+c.getMSRP() + "\n");
 
             //close loose ends
             out.close();

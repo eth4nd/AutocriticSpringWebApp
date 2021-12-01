@@ -69,7 +69,7 @@ public class BucketManager {
         FileManager f = new FileManager();
         File users = new File(UserDatabase.LocalFilename);
         User user = new User("mary","pass3");
-        Car car = new Car(2021,"Honda","Civic Type-R", 37895.00);
+        Car car = new Car(2022,"Tesla","Model-S", 12900);
         File cars = new File(CarDatabase.LocalFilename);
         UserDatabase userDatabase = new UserDatabase();
         CarDatabase carDatabase = new CarDatabase();
@@ -81,7 +81,8 @@ public class BucketManager {
 //        b.listAllBuckets();
         //b.deleteBucket("newbucket111111112398471239487123908");
       //  userDatabase.insert(user,"test",b.getS3Database());
-//        carDatabase.insert(car,"test",b.getS3Database());
+      //  carDatabase.insert(car,"test",b.getS3Database());
+        carDatabase.insert(car,"test",b.getS3Database());
         //f.insertFileIntoBucket(BucketManager.bucketName, UserDatabase.Filename,users); add file to bucket
         f.insertFileIntoBucket(BucketManager.bucketName, carDatabase.Filename,cars);
         f.printFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);

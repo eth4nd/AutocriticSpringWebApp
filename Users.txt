@@ -2,4 +2,4 @@
                  max                pass1 
                 john                pass1 
                 mary                pass3 
-                mary                pass3 
+                mary                pass3
