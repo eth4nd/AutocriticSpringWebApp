@@ -89,6 +89,7 @@ public class UserDatabase implements Model {
 
     }
 
+    //download a text file of users from aws s3 database
     public List<User> downloadUser(String Filename,AmazonS3 s3,int amount){
         List<User> listOfUsers = new ArrayList<>();
         System.out.println("Downloading " + amount+ " users " +  " from " + UserDatabase.LocalFilename);
@@ -109,4 +110,15 @@ public class UserDatabase implements Model {
         }
         return listOfUsers;
     }
+
+    //search for user within a list of Users
+    public boolean searchUser(User search, List<User> listOfUsers){
+        for(User u :listOfUsers){
+            if(search.equals(u)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
