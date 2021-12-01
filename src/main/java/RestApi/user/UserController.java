@@ -49,4 +49,19 @@ public class UserController {
         System.out.println(data.get("password"));
     }
 
+
+
+    //grabs User data from frontend
+    @PostMapping(path="signUp",
+            consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
+            produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
+    )
+    public void signUp(@RequestBody LinkedHashMap data){
+        LinkedHashMap<String,String> element = data;
+        System.out.println(data.getClass());
+        User user = new User((String)data.get("username"),(String)data.get("password"));
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+    }
+
 }
