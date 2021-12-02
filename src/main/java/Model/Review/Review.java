@@ -18,7 +18,7 @@ public class Review {
      * @param carname carname of car being reviewed
      * @param rating rating for the car review
      */
-    public Review(String review, String username, String carname, double rating) {
+    public Review(String carname, String username,String review, double rating) {
         this.review = review;
         this.userName = username;
         this.carName = carname;

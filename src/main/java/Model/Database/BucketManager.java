@@ -75,10 +75,10 @@ public class BucketManager {
 
         //reviewDatabase.downloadReviewFile(b.getS3Database());
         //reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
-        File reviews = reviewDatabase.createLocalFile();
-        f.insertFileIntoBucket(BucketManager.bucketName, reviewDatabase.Filename,reviews);
-        reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
-        b.listAllBuckets();
+//        File reviews = reviewDatabase.createLocalFile();
+//        f.insertFileIntoBucket(BucketManager.bucketName, reviewDatabase.Filename,reviews);
+//        reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
+//        b.listAllBuckets();
         //f.deleteFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
 //        b.createBucket("cs151projectautocritictest");
 //        b.listAllBuckets();

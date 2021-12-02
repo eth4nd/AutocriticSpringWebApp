@@ -18,7 +18,7 @@ import java.util.List;
 public class ReviewController {
 
     private static User user;
-<<<<<<< HEAD
+
     private final ReviewService reviewService;
 
     @Autowired
@@ -31,7 +31,7 @@ public class ReviewController {
     {
         return reviewService.getReviews();
     }
-=======
+
     private static String carName;
 //    private final ReviewService reviewService;
 //
@@ -45,7 +45,7 @@ public class ReviewController {
 //    {
 //        return reviewService.getReviews();
 //    }
->>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7
+
 
     public static void setUser(User user){
         ReviewController.user = user;
@@ -64,18 +64,18 @@ public class ReviewController {
         LinkedHashMap<String,String> element = data;
         ReviewDatabase reviewDatabase = new ReviewDatabase();
 
-<<<<<<< HEAD
+
 //        System.out.println(data.getClass());
 //        System.out.println("Username: " + user.getUsername());
 //        System.out.println(data.get("car"));
 //        System.out.println(data.get("review"));
-=======
+
         System.out.println(data.getClass());
         System.out.println("Username: " + user.getUsername());
         //System.out.println(data.get("car"));
         System.out.println("Car: " + carName);
         System.out.println(data.get("review"));
->>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7
+
         reviewDatabase.append
                 (carName,user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }
