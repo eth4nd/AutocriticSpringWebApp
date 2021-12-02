@@ -1,0 +1,19 @@
+.reviewCard {
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.reviewCard:hover {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in;
+}
+
+.reviewCard p {
+    margin-left: 15px;
+    text-decoration: none;
+}
