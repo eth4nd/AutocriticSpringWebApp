@@ -1,6 +1,7 @@
 import React from 'react'
 import { CarList } from '../helpers/CarList'
 import CarCard from '../components/CarCard'
+import AddCarButton from '../components/AddCarButton'   
 import '../styles/Home.css'
 
 function Home() {
@@ -21,6 +22,9 @@ function Home() {
                         />
                     )
                 })}
+            </div>
+            <div className='addCar'>
+                <AddCarButton/>
             </div>
         </div>
     )
