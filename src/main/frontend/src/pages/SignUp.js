@@ -6,6 +6,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const SignUp = ()=>{
+    //login condition
     const [condition,setCondition] = useState([]);
   
     const fetchUserProfiles = () =>{
@@ -64,6 +65,8 @@ const SignUp = ()=>{
         setDataLogIn(newdata)
         console.log(newdata)
     }
+
+    //display 
     return (
         <div className='signup'>
             <div className='headerContainer'>
