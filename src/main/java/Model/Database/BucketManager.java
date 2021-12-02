@@ -1,5 +1,6 @@
 package Model.Database;
 
+import Model.Review.ReviewDatabase;
 import Model.User.User;
 import Model.User.UserDatabase;
 import com.amazonaws.AmazonServiceException;
@@ -65,17 +66,21 @@ public class BucketManager {
     public static void main(String[] args) throws IOException {
         BucketManager b = new BucketManager();
         FileManager f = new FileManager();
-        File users = new File(UserDatabase.LocalFilename);
-        User user = new User("test","pass10");
+        //File users = new File(UserDatabase.LocalFilename);
+        //User user = new User("test","pass10");
         UserDatabase userDatabase = new UserDatabase();
+        ReviewDatabase reviewDatabase = new ReviewDatabase();
 
-
+        //reviewDatabase.append("placeholder",b.getS3Database());
+        reviewDatabase.downloadReviewFile(b.getS3Database());
+//        File reviews = reviewDatabase.createLocalFile();
+//        f.insertFileIntoBucket(BucketManager.bucketName, reviewDatabase.Filename,reviews);
         b.listAllBuckets();
         //f.deleteFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
 //        b.createBucket("cs151projectautocritictest");
 //        b.listAllBuckets();
         //b.deleteBucket("newbucket111111112398471239487123908");
-        userDatabase.insert(user,"test",b.getS3Database());
+        //userDatabase.insert(user,"test",b.getS3Database());
         //f.insertFileIntoBucket(BucketManager.bucketName, UserDatabase.Filename,users);
         f.printFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
         //userDatabase.downloadUserFile(b.getS3Database());

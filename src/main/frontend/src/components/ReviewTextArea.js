@@ -7,6 +7,8 @@ const ReviewTextArea = ()=>{
     //data object declared
     const [data,setData] = useState({
         review: "",
+        car:"",
+        
     })
 
     //when called, send a post request to send data to backend
@@ -28,7 +30,11 @@ const ReviewTextArea = ()=>{
     
     return(
         <form onSubmit={(e)=>submit(e)} >
-            <TextField multiline input onChangeCapture={(e)=>handle(e)} id="review" value={data.review}/>
+            <TextField  label="Car" input onChangeCapture={(e)=>handle(e)} id="car" value={data.car}/>
+            <div>   
+                <TextField multiline label="Review"  input onChangeCapture={(e)=>handle(e)} id="review" value={data.review}/>
+            </div>
+            
             <button>submit</button>
         </form>
         

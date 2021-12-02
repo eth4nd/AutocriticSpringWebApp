@@ -1,7 +1,10 @@
 package RestApi.review;
 
+import Model.Database.BucketManager;
 import Model.Review.Review;
+import Model.Review.ReviewDatabase;
 import Model.User.User;
+import Model.User.UserDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -38,12 +41,17 @@ public class ReviewController {
             produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
     )
     public void saveReview(@RequestBody LinkedHashMap data){
+        UserDatabase userDatabase = new UserDatabase();
+        BucketManager b = new BucketManager();
         LinkedHashMap<String,String> element = data;
+        ReviewDatabase reviewDatabase = new ReviewDatabase();
+
         System.out.println(data.getClass());
+        System.out.println("Username: " + user.getUsername());
+        System.out.println(data.get("car"));
         System.out.println(data.get("review"));
-//        System.out.println(data.get("user"));
-//        System.out.println(data.get("car"));
-//        System.out.println(data.get("rating"));
+        reviewDatabase.append
+                ((String)data.get("car"),user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }
 
 }

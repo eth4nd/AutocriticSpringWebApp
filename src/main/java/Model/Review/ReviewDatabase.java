@@ -33,13 +33,14 @@ public class ReviewDatabase implements ModelDatabase{
     // returns true if the user exists in the database, or false if it doesn't
     // Should be called when user wants to sign in
 
-    public void createLocalFile(){
+    public File createLocalFile(){
         File local = new File(ReviewDatabase.LocalFilename);
         try{
             local.createNewFile();
         }catch(IOException e){
             e.printStackTrace();
         }
+        return local;
     }
 
     //download review database
@@ -74,6 +75,29 @@ public class ReviewDatabase implements ModelDatabase{
 
             //write review into file
             out.write(review.toString()+"\n");
+
+            //close loose ends
+            out.close();
+            myWriter.close();
+
+            //insert file back into database
+            fm.insertFileIntoBucket(BucketManager.bucketName, ReviewDatabase.Filename,reviews);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    //append anything to file
+    public void append(String carName, String username, String review, String Filename,AmazonS3 s3) {
+        FileManager fm = new FileManager();
+        BufferedWriter out = null;
+        try{
+            //reviews.createNewFile();
+            File reviews = new File("Reviews.txt");
+            FileWriter myWriter = new FileWriter(reviews,true);
+            out = new BufferedWriter(myWriter);
+
+            //write review into file
+            out.write(String.format("%20s %20s %20s\r\n",carName,username,review));
 
             //close loose ends
             out.close();
