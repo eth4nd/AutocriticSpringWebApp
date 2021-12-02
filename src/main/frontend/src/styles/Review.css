@@ -1,8 +1,33 @@
-.review .carImage2 {
+.review {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.review .carContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review .carContainer .carImage {
     width: 50%;
-    height: 100%;
+    height: 500px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: grey;
+}
+
+.review h1 {
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.review h2 {
+    color: green;
 }

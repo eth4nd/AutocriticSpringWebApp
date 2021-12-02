@@ -8,7 +8,7 @@ function CarCard({ image, name, price }) {
             <div style={{backgroundImage:`url(${image})`}} className='carImage'/>
             <div>
                 <h1>{name}</h1>
-                <h2>${price.toLocaleString()}</h2>
+                <h2>MSRP: ${price.toLocaleString()}</h2>
                 <button>
                     <Link to={`/review/${name}`}>WRITE A REVIEW</Link>
                 </button>
