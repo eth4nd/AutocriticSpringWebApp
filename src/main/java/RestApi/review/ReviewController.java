@@ -35,15 +35,14 @@ public class ReviewController {
     public static void setUser(User user){
         ReviewController.user = user;
     }
-
+    public static void setCarName(String carName){
+        ReviewController.carName = carName;
+    }
     //grabs Review data from frontend
     @PostMapping(path="upload",
             consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
             produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
     )
-    public static void setCarName(String carName){
-        ReviewController.carName = carName;
-    }
     public void saveReview(@RequestBody LinkedHashMap data){
         UserDatabase userDatabase = new UserDatabase();
         BucketManager b = new BucketManager();
@@ -69,9 +68,13 @@ public class ReviewController {
         BucketManager b = new BucketManager();
         LinkedHashMap<String,String> element = data;
         ReviewDatabase reviewDatabase = new ReviewDatabase();
+        //format parse out carName data with correct string format
+        String carName = data.get("carName").toString();
+        carName = carName.substring(6,carName.length()-1);
 
         System.out.println(data.getClass());
-        System.out.println(data.get("carName"));
+        System.out.println(carName);
+        setCarName(carName);
     }
 
 }

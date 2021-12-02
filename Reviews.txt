@@ -1,3 +1,2 @@
-            Car Name             Username               Review
-                test                   hi           testreview
-                test                   hi          testReview2
+carName;username;review;
+2022 Honda Civic Type-R;hi;this is a review;

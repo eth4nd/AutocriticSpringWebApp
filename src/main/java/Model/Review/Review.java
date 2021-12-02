@@ -25,6 +25,9 @@ public class Review {
         this.rating = rating % 6.0;
     }
 
+    public Review(){
+
+    }
 
     @Override
     /**
