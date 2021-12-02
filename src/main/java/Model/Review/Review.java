@@ -31,7 +31,7 @@ public class Review {
      * output of the review in String form
      */
     public String toString() {
-        return "Rating: "  + rating + ", Review: " + review + " User: " + user.getUsername();
+        return review + "," + user.getUsername() + "," + car.carName() + "," + rating;
     }
 
     /**
@@ -67,4 +67,6 @@ public class Review {
     }
 
 }
+
+
 

@@ -1,8 +1,3 @@
-//package RestApi.datastore;
-//
-//import Model.Database.BucketManager;
-//import Model.Review.Review;
-////import RestApi.review.Review;
 //import org.springframework.stereotype.Repository;
 //import java.util.*;
 //
@@ -11,11 +6,11 @@
 //
 //    private List<Review> REVIEWS;
 //
-//    public ReviewRepository(){
+//    public <ReviewDatabase> ReviewRepository(){
 //        BucketManager bucketManager = new BucketManager();
-//        //ReviewDatabase reviewDatabase = new ReviewDatabase();
+//        ReviewDatabase reviewDatabase = new ReviewDatabase();
 //        //load reviews into the review repository for frontend
-//        //REVIEWS = reviewDatabase.downloadReview("placeholder", bucketManager.getS3Database(),100);
+//        REVIEWS = reviewDatabase.downloadReview("placeholder", bucketManager.getS3Database(),100);
 //
 //    }
 //
@@ -23,3 +18,4 @@
 //        return REVIEWS;
 //    }
 //}
+//

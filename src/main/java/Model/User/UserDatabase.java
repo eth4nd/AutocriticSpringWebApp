@@ -10,6 +10,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import interfaces.Model;
+import interfaces.ModelDatabase;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserDatabase implements Model {
+public class UserDatabase implements ModelDatabase {
     public static final String LocalFilename = "Users.txt"; //local file name
     public static final String Filename = "USERS"; //file name in s3 bucket database
 
@@ -52,15 +53,21 @@ public class UserDatabase implements Model {
     }
 
     @Override
-    public void delete(User u, String Filename,AmazonS3 s3) {
+    public void delete(Model user, String Filename,AmazonS3 s3) {
 
     }
 
     //insert user into file and store it in AWS database
     @Override
-    public void insert(User u, String Filename,AmazonS3 s3) {
+    public void insert(Model user, String Filename,AmazonS3 s3) {
         FileManager fm = new FileManager();
         BufferedWriter out = null;
+        if(!(user instanceof User))
+        {
+            System.out.println("wrong model class");
+            return;
+        }
+        User u = (User) user;
         String username = u.getUsername();
         String password = u.getPassword();
 
@@ -85,7 +92,7 @@ public class UserDatabase implements Model {
     }
 
     @Override
-    public void take(User u, String Filename,AmazonS3 s3) {
+    public void take(Model user, String Filename,AmazonS3 s3) {
 
     }
 
@@ -102,8 +109,8 @@ public class UserDatabase implements Model {
                 if(!sc.hasNext()){
                     return listOfUsers;
                 }
-                listOfUsers.add(new User(sc.next(),""));
-                sc.next();
+                listOfUsers.add(new User(sc.next(),sc.next()));
+
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -114,6 +121,12 @@ public class UserDatabase implements Model {
     //search for user within a list of Users
     public boolean searchUser(User search, List<User> listOfUsers){
         for(User u :listOfUsers){
+            /*
+            System.out.println
+                    ("comparing " + search.getUsername() + " and " + u.getUsername() + " = " + search.getUsername().equals(u.getUsername()));
+            System.out.println
+                    ("comparing " + search.getPassword() + " and " + u.getPassword() + " = " + search.getPassword().equals(u.getPassword()));
+            */
             if(search.equals(u)){
                 return true;
             }
