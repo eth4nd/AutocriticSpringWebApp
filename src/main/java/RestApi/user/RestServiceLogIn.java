@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class RestServiceLogIn {
 
+    //if login is false, do nothing
+    //if login is true, direct user to homepage
     public static boolean login = false;
 
     @GetMapping

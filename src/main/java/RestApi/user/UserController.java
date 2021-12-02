@@ -5,6 +5,7 @@ import Model.Database.BucketManager;
 import Model.Database.FileManager;
 import Model.User.User;
 import Model.User.UserDatabase;
+import RestApi.review.ReviewController;
 import com.amazonaws.services.ec2.model.UserData;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,5 +96,9 @@ public class UserController {
 
         System.out.println(login);
         RestServiceLogIn.setLogin(login); //if user found, set login to true to direct user to home page
+        //set user for ReviewController to user found in database
+        if(login){
+            ReviewController.setUser(user);
+        }
     }
 }
