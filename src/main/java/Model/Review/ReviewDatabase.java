@@ -2,21 +2,14 @@ package Model.Review;
 import Model.Database.BucketManager;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import Model.Database.FileManager;
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.lookoutequipment.model.S3Object;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.ObjectMetadata;
 import interfaces.Model;
 import interfaces.ModelDatabase;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.Buffer;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,6 +60,7 @@ public class ReviewDatabase implements ModelDatabase{
             return;
         }
         Review r = (Review) review;
+
         try{
             //reviews.createNewFile();
             File reviews = new File("Reviews.txt");
@@ -74,7 +68,7 @@ public class ReviewDatabase implements ModelDatabase{
             out = new BufferedWriter(myWriter);
 
             //write review into file
-            out.write(review.toString()+"\n");
+            out.write(String.format("%20s %20s %20s %20s \r\n",r.getCar(),r.getUser(),r.getReview(),r.getRating()));
 
             //close loose ends
             out.close();
@@ -97,7 +91,7 @@ public class ReviewDatabase implements ModelDatabase{
             out = new BufferedWriter(myWriter);
 
             //write review into file
-            out.write(String.format("%20s %20s %20s\r\n",carName,username,review));
+            out.write(String.format("%20s %20s %20s \r\n",carName,username,review));
 
             //close loose ends
             out.close();
@@ -128,7 +122,7 @@ public class ReviewDatabase implements ModelDatabase{
                 if(!sc.hasNext()){
                     return listOfReviews;
                 }
-                listOfReviews.add(new Review(sc.next(),null,null,0));
+                listOfReviews.add(new Review(sc.next(),sc.next(),sc.next(),0));
 
             }
         }catch(IOException e){

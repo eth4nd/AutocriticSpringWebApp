@@ -2,8 +2,6 @@ package RestApi.car;
 
 
 import Model.Car.Car;
-import RestApi.user.UserDataAccess;
-import com.amazonaws.services.ec2.model.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

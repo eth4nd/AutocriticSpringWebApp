@@ -1,8 +1,6 @@
 package RestApi.car;
 
 import Model.Car.Car;
-import Model.User.User;
-import RestApi.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

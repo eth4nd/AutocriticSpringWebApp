@@ -18,18 +18,18 @@ import java.util.List;
 public class ReviewController {
 
     private static User user;
-//    private final ReviewService reviewService;
-//
-//    @Autowired
-//    public ReviewController(ReviewService reviewService){
-//        this.reviewService = reviewService;
-//    }
-//
-//    @GetMapping
-//    public List<Review> getReview()
-//    {
-//        return reviewService.getReviews();
-//    }
+    private final ReviewService reviewService;
+
+    @Autowired
+    public ReviewController(ReviewService reviewService){
+        this.reviewService = reviewService;
+    }
+
+    @GetMapping
+    public List<Review> getReview()
+    {
+        return reviewService.getReviews();
+    }
 
     public static void setUser(User user){
         ReviewController.user = user;
@@ -46,10 +46,10 @@ public class ReviewController {
         LinkedHashMap<String,String> element = data;
         ReviewDatabase reviewDatabase = new ReviewDatabase();
 
-        System.out.println(data.getClass());
-        System.out.println("Username: " + user.getUsername());
-        System.out.println(data.get("car"));
-        System.out.println(data.get("review"));
+//        System.out.println(data.getClass());
+//        System.out.println("Username: " + user.getUsername());
+//        System.out.println(data.get("car"));
+//        System.out.println(data.get("review"));
         reviewDatabase.append
                 ((String)data.get("car"),user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }

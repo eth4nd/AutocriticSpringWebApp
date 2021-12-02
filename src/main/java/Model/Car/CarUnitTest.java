@@ -47,16 +47,16 @@ public class CarUnitTest {
     public void testGetAverageRating () {
         User testUser = new User("test","test");
         // add a 4 star rating to honda
-        ReviewSystem.inputReview("Great first car!",4.0,testUser,hondaCivic2021);
+        ReviewSystem.inputReview("Great first car!",4.0,testUser.getUsername(),hondaCivic2021.carName());
         // add a 2 star rating to honda
-        ReviewSystem.inputReview("not reliable, had tons of problems", 2.0,testUser,hondaCivic2021);
+        ReviewSystem.inputReview("not reliable, had tons of problems", 2.0,testUser.getUsername(),hondaCivic2021.carName());
         // Average review should return 3 for honda
         assertEquals(3.0,hondaCivic2021.getAverageRating(),"Average Rating for Honda should return: 3.0");
 
         //add a 3 star rating to tesla
-        ReviewSystem.inputReview("nice car, but overpriced",3.0,testUser,teslaModelS2021);
+        ReviewSystem.inputReview("nice car, but overpriced",3.0,testUser.getUsername(),teslaModelS2021.carName());
         //add a 5 star rating to tesla
-        ReviewSystem.inputReview("awesome, best car i've driven",5.0,testUser,teslaModelS2021);
+        ReviewSystem.inputReview("awesome, best car i've driven",5.0,testUser.getUsername(),teslaModelS2021.carName());
         //Average review should return 4 for tesla
         assertEquals(4.0, teslaModelS2021.getAverageRating(),"Average Rating for Tesla should return: 4.0");
 

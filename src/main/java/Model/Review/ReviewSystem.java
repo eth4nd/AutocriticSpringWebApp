@@ -5,9 +5,8 @@ import Model.User.User;
 
 public class ReviewSystem {
 
-    public static void inputReview(String review, double rating, User user, Car car)
+    public static void inputReview(String review, double rating, String username, String carname)
     {
-        Review review1 = new Review(review, user, car, rating);
-        car.storeReview(review1);
+        Review review1 = new Review(review, username, carname, rating);
     }
 }

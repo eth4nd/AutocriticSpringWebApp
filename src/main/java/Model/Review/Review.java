@@ -7,21 +7,21 @@ import Model.User.User;
 
 public class Review {
     private String review;
-    private User user;
-    private Car car;
+    private String userName;
+    private String carName;
     private double rating;
 
     /**
      * Constructor to create Review object
      * @param review review for car
-     * @param user user account for review
-     * @param car car being reviewed
+     * @param username username of account for review
+     * @param carname carname of car being reviewed
      * @param rating rating for the car review
      */
-    public Review(String review, User user, Car car, double rating) {
+    public Review(String review, String username, String carname, double rating) {
         this.review = review;
-        this.user = user;
-        this.car = car;
+        this.userName = username;
+        this.carName = carname;
         this.rating = rating % 6.0;
     }
 
@@ -31,7 +31,7 @@ public class Review {
      * output of the review in String form
      */
     public String toString() {
-        return review + "," + user.getUsername() + "," + car.carName() + "," + rating;
+        return review + "," + userName + "," + carName + "," + rating;
     }
 
     /**
@@ -43,19 +43,19 @@ public class Review {
     }
 
     /**
-     * getter method of associated user for car review
-     * @return this.user
+     * getter method of the userName that wrote the review
+     * @return this.userName
      */
-    public User getUser() {
-        return this.user;
+    public String getUser() {
+        return this.userName;
     }
 
     /**
-     * getter method of associated car for car review
+     * getter method of associated carName with review
      * @return this.car
      */
-    public Car getCar() {
-        return this.car;
+    public String getCar() {
+        return this.carName;
     }
 
     /**
