@@ -1,4 +1,9 @@
+<<<<<<< HEAD
             Car Name             Username               Review
                 test                   hi           testreview
                 test                   hi          testReview2
             testcar3                 test                 nice 
+=======
+carName;username;review;
+2022 Honda Civic Type-R;hi;this is a review;
+>>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7

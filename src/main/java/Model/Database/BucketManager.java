@@ -1,5 +1,6 @@
 package Model.Database;
 
+import Model.Review.Review;
 import Model.Review.ReviewDatabase;
 import Model.User.User;
 import Model.User.UserDatabase;
@@ -71,10 +72,12 @@ public class BucketManager {
         UserDatabase userDatabase = new UserDatabase();
         ReviewDatabase reviewDatabase = new ReviewDatabase();
 
-        //reviewDatabase.append("placeholder",b.getS3Database());
-        reviewDatabase.downloadReviewFile(b.getS3Database());
-//        File reviews = reviewDatabase.createLocalFile();
-//        f.insertFileIntoBucket(BucketManager.bucketName, reviewDatabase.Filename,reviews);
+
+        //reviewDatabase.downloadReviewFile(b.getS3Database());
+        //reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
+        File reviews = reviewDatabase.createLocalFile();
+        f.insertFileIntoBucket(BucketManager.bucketName, reviewDatabase.Filename,reviews);
+        reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
         b.listAllBuckets();
         //f.deleteFileFromBucket(BucketManager.bucketName,UserDatabase.Filename);
 //        b.createBucket("cs151projectautocritictest");

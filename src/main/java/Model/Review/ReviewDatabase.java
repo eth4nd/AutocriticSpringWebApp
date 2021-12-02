@@ -68,7 +68,11 @@ public class ReviewDatabase implements ModelDatabase{
             out = new BufferedWriter(myWriter);
 
             //write review into file
+<<<<<<< HEAD
             out.write(String.format("%20s %20s %20s %20s \r\n",r.getCar(),r.getUser(),r.getReview(),r.getRating()));
+=======
+            out.write(String.format("%s|%s|%s|\r\n","carName","username","review"));
+>>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7
 
             //close loose ends
             out.close();
@@ -91,7 +95,11 @@ public class ReviewDatabase implements ModelDatabase{
             out = new BufferedWriter(myWriter);
 
             //write review into file
+<<<<<<< HEAD
             out.write(String.format("%20s %20s %20s \r\n",carName,username,review));
+=======
+            out.write(String.format("%s;%s;%s;\r\n",carName,username,review));
+>>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7
 
             //close loose ends
             out.close();
@@ -117,6 +125,7 @@ public class ReviewDatabase implements ModelDatabase{
         try{
             File reviews = new File(ReviewDatabase.LocalFilename);
             Scanner sc = new Scanner(reviews);
+            sc.useDelimiter(";");
             System.out.println(sc.nextLine());
             for(int i = 0;i<amount;i++){
                 if(!sc.hasNext()){
