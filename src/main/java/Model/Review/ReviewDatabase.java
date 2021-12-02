@@ -42,8 +42,8 @@ public class ReviewDatabase implements ModelDatabase{
         }
     }
 
-    //download user database
-    public void downloadUserFile(AmazonS3 s3){
+    //download review database
+    public void downloadReviewFile(AmazonS3 s3){
         s3.getObject(
                 new GetObjectRequest(BucketManager.bucketName, ReviewDatabase.Filename),
                 new File(ReviewDatabase.LocalFilename)
@@ -104,7 +104,7 @@ public class ReviewDatabase implements ModelDatabase{
                 if(!sc.hasNext()){
                     return listOfReviews;
                 }
-                listOfReviews.add(new Review(sc.next(),sc.next()));
+                listOfReviews.add(new Review(sc.next(),null,null,0));
 
             }
         }catch(IOException e){
