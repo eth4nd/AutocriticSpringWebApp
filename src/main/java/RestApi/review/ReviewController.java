@@ -54,6 +54,21 @@ public class ReviewController {
                 ((String)data.get("car"),user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }
 
+    //grabs Review data from frontend
+    @PostMapping(path="sendCarName",
+            consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
+            produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
+    )
+    public void sendCarName(@RequestBody LinkedHashMap data){
+        UserDatabase userDatabase = new UserDatabase();
+        BucketManager b = new BucketManager();
+        LinkedHashMap<String,String> element = data;
+        ReviewDatabase reviewDatabase = new ReviewDatabase();
+
+        System.out.println(data.getClass());
+        System.out.println(data.get("carName"));
+    }
+
 }
 
 
