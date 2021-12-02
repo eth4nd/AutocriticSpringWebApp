@@ -18,6 +18,7 @@ import java.util.List;
 public class ReviewController {
 
     private static User user;
+    private static String carName;
 //    private final ReviewService reviewService;
 //
 //    @Autowired
@@ -40,6 +41,9 @@ public class ReviewController {
             consumes = MediaType.APPLICATION_JSON_VALUE, //grabs a datatype from front end and
             produces = MediaType.APPLICATION_JSON_VALUE //produces a datatype in back end
     )
+    public static void setCarName(String carName){
+        ReviewController.carName = carName;
+    }
     public void saveReview(@RequestBody LinkedHashMap data){
         UserDatabase userDatabase = new UserDatabase();
         BucketManager b = new BucketManager();
@@ -48,10 +52,11 @@ public class ReviewController {
 
         System.out.println(data.getClass());
         System.out.println("Username: " + user.getUsername());
-        System.out.println(data.get("car"));
+        //System.out.println(data.get("car"));
+        System.out.println("Car: " + carName);
         System.out.println(data.get("review"));
         reviewDatabase.append
-                ((String)data.get("car"),user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
+                (carName,user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }
 
     //grabs Review data from frontend
