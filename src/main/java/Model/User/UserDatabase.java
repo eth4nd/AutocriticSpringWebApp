@@ -29,7 +29,13 @@ import java.util.Scanner;
  * {@value #Filename} name of S3 bucket
  */
 public class UserDatabase implements ModelDatabase {
+    /**
+     * {@value #LocalFilename} name of local file
+     */
     public static final String LocalFilename = "Users.txt"; //local file name
+    /**
+     * {@value #Filename} name of S3 bucket
+     */
     public static final String Filename = "USERS"; //file name in s3 bucket database
 
     private HashMap<String, User> cache = new HashMap<>();

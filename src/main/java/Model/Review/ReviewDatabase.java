@@ -18,11 +18,15 @@ import java.util.Scanner;
 /**
  * Review database model class that represents a database that stores Review objects
  * There is a local database for demonstration purposes and an AWS database
- * {@value #LocalFilename} name of local file
- * {@value #Filename} name of file in S3 bucket
  */
 public class ReviewDatabase implements ModelDatabase{
+    /**
+     *  * {@value #LocalFilename} name of local file
+     */
     public static final String LocalFilename = "Reviews.txt"; //local file name
+    /**
+     * {@value #Filename} name of file in S3 bucket
+     */
     public static final String Filename = "REVIEWS"; //file name in s3 bucket database
 
     private HashMap<String, Review> cache = new HashMap<>();
