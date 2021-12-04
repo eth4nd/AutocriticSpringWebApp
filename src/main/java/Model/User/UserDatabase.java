@@ -24,7 +24,9 @@ import java.util.Scanner;
 
 /**
  * UserDatabase model class that represents a database that stores User objects
- * There is a lcoal database for demonstration purposes and an AWS database
+ * There is a local database for demonstration purposes and an AWS database
+ * {@value #LocalFilename} name of local file
+ * {@value #Filename} name of S3 bucket
  */
 public class UserDatabase implements ModelDatabase {
     public static final String LocalFilename = "Users.txt"; //local file name
@@ -64,9 +66,9 @@ public class UserDatabase implements ModelDatabase {
 
     /**
      * does nothing but is required by ModelDatabase interface
-     * @param user
-     * @param Filename
-     * @param s3
+     * @param user user
+     * @param Filename the file
+     * @param s3 the AmazonS3 bucket
      */
     @Override
     public void delete(Model user, String Filename,AmazonS3 s3) {
@@ -114,9 +116,9 @@ public class UserDatabase implements ModelDatabase {
 
     /**
      * does nothing but is required by ModelDatabase interface
-     * @param user
-     * @param Filename
-     * @param s3
+     * @param user user
+     * @param Filename the file
+     * @param s3 the AmazonS3 bucket
      */
     @Override
     public void take(Model user, String Filename,AmazonS3 s3) {

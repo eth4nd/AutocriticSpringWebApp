@@ -26,6 +26,8 @@ import java.util.Scanner;
 /**
  * CarDatabase model class that represents a database that stores Car objects.
  * There is a local database for demonstration purposes and an AWS database.
+ * {@value #LocalFilename} name of local file
+ * {@value #Filename} name of file in S3 bucket
  */
 public class CarDatabase implements ModelDatabase {
     public static final String LocalFilename = "Cars.txt"; // local file name
@@ -57,6 +59,12 @@ public class CarDatabase implements ModelDatabase {
         );
     }
 
+    /**
+     * // does nothing, required by ModelDatabase interface
+     * @param car the car
+     * @param Filename name of the file
+     * @param s3 the AmazonS3 bucket
+     */
     @Override
     public void delete(Model car, String Filename, AmazonS3 s3) {
         // does nothing, required by ModelDatabase interface
@@ -99,9 +107,15 @@ public class CarDatabase implements ModelDatabase {
         }
     }
 
+    /**
+     * does nothing, required by ModelDatabase interface
+     * @param car the car
+     * @param Filename name of the file
+     * @param s3 the AmazonS3 bucket
+     */
     @Override
     public void take(Model car, String Filename,AmazonS3 s3) {
-        // does nothing, required by ModelDatabase interface
+
     }
 
     /**

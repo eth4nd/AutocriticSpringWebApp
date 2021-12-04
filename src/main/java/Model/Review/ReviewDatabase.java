@@ -18,6 +18,8 @@ import java.util.Scanner;
 /**
  * Review database model class that represents a database that stores Review objects
  * There is a local database for demonstration purposes and an AWS database
+ * {@value #LocalFilename} name of local file
+ * {@value #Filename} name of file in S3 bucket
  */
 public class ReviewDatabase implements ModelDatabase{
     public static final String LocalFilename = "Reviews.txt"; //local file name
@@ -58,9 +60,9 @@ public class ReviewDatabase implements ModelDatabase{
 
     /**
      * does nothing, but is required by ModelDatabase interface
-     * @param user
-     * @param Filename
-     * @param s3
+     * @param user the user
+     * @param Filename file to delete
+     * @param s3 the AmazonS3 bucket
      */
     @Override
     public void delete(Model user, String Filename,AmazonS3 s3) {
@@ -70,7 +72,7 @@ public class ReviewDatabase implements ModelDatabase{
     /**
      * insert review into file and store it in AWS database
      * @param review review object
-     * @param Filename the file to delete from
+     * @param Filename the file to insert
      * @param s3 the AmazonS3 bucket
      */
     @Override
@@ -142,9 +144,9 @@ public class ReviewDatabase implements ModelDatabase{
 
     /**
      * does nothing but is required by ModelDatabase interface
-     * @param review
-     * @param Filename
-     * @param s3
+     * @param review the review
+     * @param Filename the file to take from
+     * @param s3 the AmazonS3 bucket
      */
     @Override
     public void take(Model review, String Filename,AmazonS3 s3) {
