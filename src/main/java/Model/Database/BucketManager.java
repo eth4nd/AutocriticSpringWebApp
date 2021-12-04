@@ -22,9 +22,11 @@ import java.util.List;
 
 /**
  * BucketManager model class that manages S3 buckets from within the AWS database.
- * {@value #bucketName} name of the bucket
  */
 public class BucketManager {
+    /**
+     * {@value #bucketName} name of the bucket
+     */
     public static final String bucketName = "cs151projectautocritictest";
     private final AmazonS3 s3;
 
