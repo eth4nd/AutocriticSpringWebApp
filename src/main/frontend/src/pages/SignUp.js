@@ -76,7 +76,7 @@ const SignUp = ()=>{
                     <label htmlFor='username'>Username</label>
                     <input type='text' id='username' value={data.username} input onChangeCapture={(e)=>handle(e)}/>
                     <label htmlFor='password'>Password</label>
-                    <input type='text' id='password' value={data.password} input onChangeCapture={(e)=>handle(e)}/>
+                    <input type='password' id='password' value={data.password} input onChangeCapture={(e)=>handle(e)}/>
                     <input className='signupButton' type='submit' value='SIGN UP' />
                 </form>
                 <form className='loginMenu' action={condition?'/':'/signup'} onSubmit={(d)=>submitLogIn(d)}>
@@ -84,7 +84,7 @@ const SignUp = ()=>{
                     <label htmlFor='username'>Username</label>
                     <input type='text' id='username' value={dataLogIn.username} input onChangeCapture={(d)=>handleLogIn(d)}/>
                     <label htmlFor='password'>Password</label>
-                    <input type='text' id='password' value={dataLogIn.password} input onChangeCapture={(d)=>handleLogIn(d)}/>
+                    <input type='password' id='password' value={dataLogIn.password} input onChangeCapture={(d)=>handleLogIn(d)}/>
                     <input className='loginButton' type='submit' value='LOG IN' />
                 </form>
             </div>

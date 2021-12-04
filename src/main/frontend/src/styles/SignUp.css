@@ -58,6 +58,13 @@ input[type=text] {
     border-radius: 0;
 }
 
+input[type=password] {
+    height: 30px;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 0;
+}
+
 input[type=submit] {
     margin-top: 10px;
     margin-left: 2px;
