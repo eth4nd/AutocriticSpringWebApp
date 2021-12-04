@@ -16,18 +16,18 @@ export const CarList = [
                 rating: 1,
                 comment: "dumb car"
             },
-            {
-                uuid: 5678,
-                username: "bob",
-                rating: 5,
-                comment: "good car"
-            },
-            {
-                uuid: 1111,
-                username: "mike",
-                rating: 3,
-                comment: "decent car"
-            }
+            // {
+            //     uuid: 5678,
+            //     username: "bob",
+            //     rating: 5,
+            //     comment: "good car"
+            // },
+            // {
+            //     uuid: 1111,
+            //     username: "mike",
+            //     rating: 3,
+            //     comment: "decent car"
+            // }
         ]
     },
     {
