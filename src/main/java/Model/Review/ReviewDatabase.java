@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+
+/**
+ * Review database model class that represents a database that stores Review objects
+ * There is a local database for demonstration purposes and an AWS database
+ */
 public class ReviewDatabase implements ModelDatabase{
     public static final String LocalFilename = "Reviews.txt"; //local file name
     public static final String Filename = "REVIEWS"; //file name in s3 bucket database
@@ -26,6 +31,10 @@ public class ReviewDatabase implements ModelDatabase{
     // returns true if the user exists in the database, or false if it doesn't
     // Should be called when user wants to sign in
 
+    /**
+     * creates a new local file
+     * @return local file
+     */
     public File createLocalFile(){
         File local = new File(ReviewDatabase.LocalFilename);
         try{
@@ -36,7 +45,10 @@ public class ReviewDatabase implements ModelDatabase{
         return local;
     }
 
-    //download review database
+    /**
+     * downloads the review database from the AWS database
+     * @param s3 the AmazonS3 bucket
+     */
     public void downloadReviewFile(AmazonS3 s3){
         s3.getObject(
                 new GetObjectRequest(BucketManager.bucketName, ReviewDatabase.Filename),
@@ -44,12 +56,23 @@ public class ReviewDatabase implements ModelDatabase{
         );
     }
 
+    /**
+     * does nothing, but is required by ModelDatabase interface
+     * @param user
+     * @param Filename
+     * @param s3
+     */
     @Override
     public void delete(Model user, String Filename,AmazonS3 s3) {
 
     }
 
-    //insert review into file and store it in AWS database
+    /**
+     * insert review into file and store it in AWS database
+     * @param review review object
+     * @param Filename the file to delete from
+     * @param s3 the AmazonS3 bucket
+     */
     @Override
     public void insert(Model review, String Filename,AmazonS3 s3) {
         FileManager fm = new FileManager();
@@ -83,7 +106,15 @@ public class ReviewDatabase implements ModelDatabase{
             e.printStackTrace();
         }
     }
-    //append anything to file
+
+    /**
+     * appends anything into the file
+     * @param carName name of the car
+     * @param username username of user
+     * @param review review for the car
+     * @param Filename file that is stored
+     * @param s3 the AmazonS3 bucket
+     */
     public void append(String carName, String username, String review, String Filename,AmazonS3 s3) {
         FileManager fm = new FileManager();
         BufferedWriter out = null;
@@ -109,12 +140,24 @@ public class ReviewDatabase implements ModelDatabase{
         }
     }
 
+    /**
+     * does nothing but is required by ModelDatabase interface
+     * @param review
+     * @param Filename
+     * @param s3
+     */
     @Override
     public void take(Model review, String Filename,AmazonS3 s3) {
 
     }
 
-    //download a text file of reviews from aws s3 database
+    /**
+     * downloads a text file of reviews from aws s3 database
+     * @param Filename the file to read from
+     * @param s3 the AmazonS3 bucket
+     * @param amount the total number of review downloaded from the local/AWS database
+     * @return an ArrayList of Review objects
+     */
     public List<Review> downloadReview(String Filename,AmazonS3 s3,int amount){
         String review = "";
         String user = "";
@@ -154,3 +197,4 @@ public class ReviewDatabase implements ModelDatabase{
 
 
 }
+
