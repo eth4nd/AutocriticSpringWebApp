@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-            Car Name             Username               Review
-                test                   hi           testreview
-                test                   hi          testReview2
-            testcar3                 test                 nice 
-=======
-carName;username;review;
-2022 Honda Civic Type-R;hi;this is a review;
->>>>>>> 0db063e20ff98a26053ea71b4c6a0e108f6183f7
+;carName;username;review
+;2022 Honda Civic Type-R;hi;test
+;2022 Honda Civic Type-R;hi;test1
+;2022 Honda Civic Type-R;hi;test2
+;2022 Honda Civic Type-R;hi;test23
+;2022 Honda Civic Type-R;hi;test4

@@ -7,34 +7,34 @@ import ReviewTextArea from '../components/ReviewTextArea';
 import axios from 'axios';
 
 
-const Reviews = () => {
-    const[reviews, setReviews] = useState([]);
+// const Reviews = () => {
+//     const[reviews, setReviews] = useState([]);
     
-        const fetchReviews = ()=>{
-            axios.get("http://localhost:8080/api/v1/review").then(res=> {
-                console.log(res);
-                setReviews(res.data);
-            });
-        };
+//         const fetchReviews = ()=>{
+//             axios.get("http://localhost:8080/api/v1/review").then(res=> {
+//                 console.log(res);
+//                 setReviews(res.data);
+//             });
+//         };
     
-        useEffect(() =>{
-            fetchReviews();
-        }, []);
+//         useEffect(() =>{
+//             fetchReviews();
+//         }, []);
 
-        return reviews.map((review,index) => {
-            return(<div key = {index}>
-                <h1>Car Name: {review.car}</h1>
-                <h1>{review.rating}</h1>
-            </div>
-            )
-        })
+//         return reviews.map((review,index) => {
+//             return(<div key = {index}>
+//                 <h1>Car Name: {review.car}</h1>
+//                 <h1>{review.rating}</h1>
+//             </div>
+//             )
+//         })
 
-        // return reviews.map((review,index)=> {
-        //     return(<ReviewCard
-        //             username = {Reviews}
-        //         />)
-        // })
-}
+//         // return reviews.map((review,index)=> {
+//         //     return(<ReviewCard
+//         //             username = {Reviews}
+//         //         />)
+//         // })
+// }
 
 function Review() {
     // retrieves name parameter from Router and searches in CarList for car with matching name
@@ -47,7 +47,6 @@ function Review() {
             <div className='headerContainer'>
                 <p>You are at the Review page</p>
                 <h1>A review menu will be here</h1>
-                <Reviews />
                 <ReviewTextArea/>
             </div>
             <div className='carContainer'>

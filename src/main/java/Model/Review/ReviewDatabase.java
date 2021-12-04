@@ -69,7 +69,6 @@ public class ReviewDatabase implements ModelDatabase{
 
             //write review into file
 
-            out.write(String.format("%20s %20s %20s %20s \r\n",r.getCar(),r.getUser(),r.getReview(),r.getRating()));
 
             out.write(String.format("%s|%s|%s|\r\n","carName","username","review"));
 
@@ -96,7 +95,7 @@ public class ReviewDatabase implements ModelDatabase{
 
             //write review into file
 
-            out.write(String.format("%s;%s;%s;\r\n",carName,username,review));
+            out.write(String.format(";%s;%s;%s\r\n",carName,username,review));
 
 
             //close loose ends
@@ -117,6 +116,9 @@ public class ReviewDatabase implements ModelDatabase{
 
     //download a text file of reviews from aws s3 database
     public List<Review> downloadReview(String Filename,AmazonS3 s3,int amount){
+        String review = "";
+        String user = "";
+        String car = "";
         List<Review> listOfReviews = new ArrayList<>();
         System.out.println("Downloading " + amount+ " reviews " +  " from " + ReviewDatabase.LocalFilename);
 
@@ -126,15 +128,27 @@ public class ReviewDatabase implements ModelDatabase{
             sc.useDelimiter(";");
             System.out.println(sc.nextLine());
             for(int i = 0;i<amount;i++){
-                if(!sc.hasNext()){
+                //if there's no more car found in database, return list
+                if(!sc.hasNextLine()){
+                    System.out.println("End of database spotted. Returning list...");
                     return listOfReviews;
                 }
-                listOfReviews.add(new Review(sc.next(),sc.next(),sc.next(),0));
-
+                System.out.println("initializing vars...");
+                //initiate values to make review objects
+                car = sc.next();
+                user = sc.next();
+                review = sc.next();
+                System.out.println("end of initializing vars...");
+//                System.out.println("Car: " +car);
+//                System.out.println("User: " +user);
+//                System.out.println("Review: " + review);
+                System.out.println("Adding car to list...");
+                listOfReviews.add(new Review(car,user,review,0));
             }
         }catch(IOException e){
             e.printStackTrace();
         }
+        System.out.println("Returning list...");
         return listOfReviews;
     }
 

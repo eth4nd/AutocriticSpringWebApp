@@ -10,16 +10,21 @@ import java.util.*;
 public class ReviewRepository {
 
     private List<Review> REVIEWS;
+    private ReviewDatabase reviewDatabase;
+    private BucketManager bucketManager;
 
     public ReviewRepository(){
-        BucketManager bucketManager = new BucketManager();
-        ReviewDatabase reviewDatabase = new ReviewDatabase();
+        bucketManager = new BucketManager();
+        reviewDatabase = new ReviewDatabase();
         //load reviews into the review repository for frontend
         REVIEWS = reviewDatabase.downloadReview("placeholder", bucketManager.getS3Database(),100);
 
     }
 
     public List<Review> getReviews(){
+        //update review data
+        REVIEWS = reviewDatabase.downloadReview("placeholder", bucketManager.getS3Database(),100);
+
         return REVIEWS;
     }
 }

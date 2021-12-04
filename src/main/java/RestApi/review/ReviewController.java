@@ -18,6 +18,7 @@ import java.util.List;
 public class ReviewController {
 
     private static User user;
+
     private final ReviewService reviewService;
 
     @Autowired
@@ -30,6 +31,7 @@ public class ReviewController {
     {
         return reviewService.getReviews();
     }
+
     private static String carName;
 //    private final ReviewService reviewService;
 //
@@ -72,6 +74,7 @@ public class ReviewController {
         //System.out.println(data.get("car"));
         System.out.println("Car: " + carName);
         System.out.println(data.get("review"));
+
         reviewDatabase.append
                 (carName,user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
     }
