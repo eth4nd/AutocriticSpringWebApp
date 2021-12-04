@@ -64,6 +64,10 @@ public class User implements Model {
         return this.username;
     }
 
+    /**
+     * formats username and password fields to a String representation
+     * @return formatted String with user and password
+     */
     @Override
     public String toString(){
         return "USER: " + this.getUsername() + " PASSWORD: " + this.getPassword();
