@@ -5,6 +5,9 @@ import Model.Car.Car;
 import Model.User.User;
 
 
+/**
+ * Review model class that represents the reviews that users will create for cars
+ */
 public class Review {
     private String review;
     private String userName;
@@ -23,10 +26,6 @@ public class Review {
         this.userName = username;
         this.carName = carname;
         this.rating = rating % 6.0;
-    }
-
-    public Review(){
-
     }
 
     @Override
