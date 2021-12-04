@@ -20,9 +20,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * BucketManager model class that manages S3 buckets from within the AWS database.
+ */
 public class BucketManager {
     public static final String bucketName = "cs151projectautocritictest";
     private final AmazonS3 s3;
+
+    /**
+     * Constructor to access the AWS database and initialize the BucketManager model
+     */
     public BucketManager(){
         AWSCredentials awsCredentials = new BasicAWSCredentials(
                 "AKIAQNUHEPFEGYHK6KU6", "46fiA27SLsAU0zp7N6TgmOYJ7hV7xKZXdS/Gx/lP"
@@ -35,10 +42,17 @@ public class BucketManager {
                 .build();
     }
 
+    /**
+     * Retrieves the AmazonS3 bucket from AWS database
+     * @return the AmazonS3 bucket
+     */
     public AmazonS3 getS3Database(){
         return s3;
     }
 
+    /**
+     * Lists out all the current buckets stored in the AWS database
+     */
     public void listAllBuckets(){
         List<Bucket> buckets = this.s3.listBuckets();
         System.out.println("Buckets:");
@@ -46,6 +60,11 @@ public class BucketManager {
             System.out.println("* " + b.getName());
         }
     }
+
+    /**
+     * Creates a new bucket in the AWS database
+     * @param name of the new bucket
+     */
     public void createBucket(String name){
         try{
             s3.createBucket(name);
@@ -54,6 +73,11 @@ public class BucketManager {
             System.err.println(e.getErrorMessage());
         }
     }
+
+    /**
+     * Deletes the bucket in the AWS database
+     * @param name of the bucket
+     */
     public void deleteBucket(String name){
         try{
             s3.deleteBucket(name);
@@ -63,7 +87,10 @@ public class BucketManager {
         }
     }
 
-    //test
+    /**
+     * Main method for BucketManager
+     * Used for testing
+     */
     public static void main(String[] args) throws IOException {
         BucketManager b = new BucketManager();
         FileManager f = new FileManager();
