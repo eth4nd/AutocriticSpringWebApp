@@ -105,7 +105,7 @@ public class CarDatabase implements ModelDatabase {
     }
 
     /**
-     *
+     *downloads a text file of cars from aws s3 database
      * @param Filename the File to read from
      * @param s3 the AmazonS3 bucket
      * @param amount the total number of cars downloaded from the local/AWS database
