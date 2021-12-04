@@ -5,6 +5,9 @@ import interfaces.Model;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Car model class that represents Car objects that will be stored in the car database.
+ */
 public class Car implements Comparable<Car>, Model{
     private int year;
     private String make;
@@ -32,7 +35,7 @@ public class Car implements Comparable<Car>, Model{
 
     /**
      * Getter method for the year the car was manufactured
-     * @return this.year
+     * @return year
      */
     public int getYear()
     {
@@ -41,7 +44,7 @@ public class Car implements Comparable<Car>, Model{
 
     /**
      * Getter method for make of the car object
-     * @return this.make
+     * @return make
      */
     public String getMake()
     {
@@ -96,8 +99,9 @@ public class Car implements Comparable<Car>, Model{
     }
 
     /**
-     * Output the Year, Make, Model of Car
-     * @return carName, contains just year, make, and model of car
+     * Creates a String representation of the year, make, and model of the car
+     * @return carName, which contains a String of year, make, and model of car
+     * separated by commas
      */
     public String carName(){
         String carName = this.getYear() + "," + this.getMake() + "," + getModel();
@@ -107,7 +111,7 @@ public class Car implements Comparable<Car>, Model{
     /**
      * Deep equals method that compares by hashCode
      * @param o Car object
-     * @return True if hashCodes match, deep equals
+     * @return true if hashCodes match, indicating deep equals
      */
     @Override
     public boolean equals(Object o) {
@@ -120,7 +124,7 @@ public class Car implements Comparable<Car>, Model{
 
     /**
      * Generates hashCode based on carName, price, and averageRating
-     * @return output of Object.hash of year, make, and model of the car
+     * @return Object.hash of year, make, and model of the car
      */
     @Override
     public int hashCode()
@@ -130,7 +134,7 @@ public class Car implements Comparable<Car>, Model{
 
     /**
      * Compares by carName by default
-     * @return negative integer if preceding, 0 if equal, positive if following
+     * @return negative integer if preceding, zero if equal, positive if following
      */
     public int compareTo(Car that)
     {
