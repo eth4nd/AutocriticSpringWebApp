@@ -4,6 +4,10 @@ import interfaces.Model;
 
 
 import java.util.*;
+
+/**
+ * User model class that represents the User objects that will be stored in the user database
+ */
 public class User implements Model {
     private String username;
     private String password;
@@ -23,7 +27,6 @@ public class User implements Model {
      * Getter method for password
      * @return this.password
      */
-
     public String getPassword() {
         return this.password;
     }
@@ -57,7 +60,6 @@ public class User implements Model {
      * getter method for username
      * @return this.username
      */
-
     public String getUsername() {
         return this.username;
     }
