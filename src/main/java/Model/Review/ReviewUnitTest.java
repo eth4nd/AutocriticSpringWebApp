@@ -24,6 +24,17 @@ public class ReviewUnitTest {
         assertEquals("Review message does not match with user", review, testUser.getReviews().get(0).getReview());
         assertEquals(testUser.getReviews().get(0).getRating(), 4.65, 0.0);
     } */
-
+    @Test
+    public void testReviewClass(){
+        Review review = new Review("Tesla Model X", "John", "This is a review", 4);
+        String car = "Tesla Model X";
+        String user = "John";
+        String reviewTest = "This is a review";
+        double rating = 4;
+        assertEquals(review.getRating(), 4, 0.01);
+        assertEquals("reviewTest does not match with review",reviewTest, review.getReview());
+        assertEquals("user does not match",review.getUser(),user);
+        assertEquals("car does not match",review.getCar(),car);
+    }
 
 }
