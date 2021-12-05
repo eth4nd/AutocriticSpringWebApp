@@ -1,11 +1,7 @@
 package Model.User;
 
-//import Model.User.LoginSystem;
 import Model.Database.BucketManager;
-import Model.User.User;
-import Model.User.UserDatabase;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 

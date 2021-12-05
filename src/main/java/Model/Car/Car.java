@@ -10,20 +10,50 @@ public class Car implements Comparable<Car>, Model{
     private String carName;
     private double avgRating;
     private int numOfRatings;
-    private int totalRatings;
+    private int totalRating;
+
+    /**
+     * Getter method for carName
+     * @return carName
+     */
+    public String getCarName() {
+        return carName;
+    }
+    /**
+     * Getter method for avgRating
+     * @return avgRating
+     */
+    public double getAvgRating() {
+        return avgRating;
+    }
+    /**
+     * Getter method for numOfRatings
+     * @return
+     */
+    public int getNumOfRatings() {
+        return numOfRatings;
+    }
+    /**
+     *
+     * @return
+     */
+    public int getTotalRating() {
+        return totalRating;
+    }
 
     /**
      * Constructor to create Car objects
      * @param carName is the name of the car
      * @param avgRating is the average rating for this car
-     * @param numOfRatings is total number of ratings on car
+     * @param numOfRatings is number of ratings on car
+     * @param totalRating is total of ratings on car
      */
-    public Car (String carName, double avgRating, int numOfRatings, int totalRatings)
+    public Car (String carName, double avgRating, int numOfRatings, int totalRating)
     {
         this.carName = carName;
         this.avgRating = avgRating;
         this.numOfRatings = numOfRatings;
-        this.totalRatings = totalRatings;
+        this.totalRating = totalRating;
     }
 
 
@@ -86,15 +116,16 @@ public class Car implements Comparable<Car>, Model{
     }
 
 
+
     /**
      * Recalculates averageRating with a newRating, called when a new review is added
      * to this particular object
      * @param newRating The new rating from the review
      */
-    private void calcAvgRating(double newRating)
+    public void addRating(double newRating)
     {
-        this.totalRatings += newRating;
+        this.totalRating += newRating;
         this.numOfRatings++;
-        this.avgRating = totalRatings / numOfRatings;
+        this.avgRating = (double) totalRating / (double) numOfRatings;
     }
 }
