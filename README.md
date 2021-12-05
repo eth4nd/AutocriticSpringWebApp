@@ -20,7 +20,7 @@ Steps for cloning:
 11. In terminal, type "npm start"
 11. The web application should now launch in your browser
 
-Steps for Demo:
+Steps for demo:
 1. Make sure you completed the steps above to have the web application running in your browser
 1. Click the Sign Up button at the top right corner of the navigation bar
 2. On the left side, sign up with any username and password
