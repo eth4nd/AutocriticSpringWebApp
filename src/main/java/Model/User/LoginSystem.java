@@ -1,6 +1,10 @@
 package Model.User;
-/*
+
+/**
+ * Unused class
+ */
 public class LoginSystem {
+    /*
     public static boolean UserLogin(String username, String password, UserDatabase u)
     {
         if(u.findUser(username))
@@ -19,5 +23,5 @@ public class LoginSystem {
         else
             return false;
     }
+    */
 }
-*/

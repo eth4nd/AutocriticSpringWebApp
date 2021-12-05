@@ -25,6 +25,9 @@ import java.util.List;
  * BucketManager model class that manages S3 buckets from within the AWS database.
  */
 public class BucketManager {
+    /**
+     * {@value #bucketName} name of the bucket
+     */
     public static final String bucketName = "cs151projectautocritictest";
     private final AmazonS3 s3;
 
@@ -91,6 +94,8 @@ public class BucketManager {
     /**
      * Main method for BucketManager
      * Used for testing
+     * @param args array
+     * @throws IOException when fails to retrieve data
      */
     public static void main(String[] args) throws IOException {
         BucketManager b = new BucketManager();

@@ -27,7 +27,13 @@ import java.util.Scanner;
  * There is a local database for demonstration purposes and an AWS database.
  */
 public class CarDatabase implements ModelDatabase {
+    /**
+     * {@value #LocalFilename} name of local file
+     */
     public static final String LocalFilename = "Cars.txt"; // local file name
+    /**
+     * {@value #Filename} name of file in S3 bucket
+     */
     public static final String Filename = "CARS"; // file name in s3 bucket database
 
     private HashMap<String, Car> cache = new HashMap<>();
@@ -56,6 +62,12 @@ public class CarDatabase implements ModelDatabase {
         );
     }
 
+    /**
+     * // does nothing, required by ModelDatabase interface
+     * @param car the car
+     * @param Filename name of the file
+     * @param s3 the AmazonS3 bucket
+     */
     @Override
     public void delete(Model car, String Filename, AmazonS3 s3) {
         // does nothing, required by ModelDatabase interface
@@ -128,13 +140,19 @@ public class CarDatabase implements ModelDatabase {
         }
     }
 
+    /**
+     * does nothing, required by ModelDatabase interface
+     * @param car the car
+     * @param Filename name of the file
+     * @param s3 the AmazonS3 bucket
+     */
     @Override
     public void take(Model car, String Filename,AmazonS3 s3) {
-        // does nothing, required by ModelDatabase interface
+
     }
 
     /**
-     *
+     *downloads a text file of cars from aws s3 database
      * @param Filename the File to read from
      * @param s3 the AmazonS3 bucket
      * @param amount the total number of cars downloaded from the local/AWS database
