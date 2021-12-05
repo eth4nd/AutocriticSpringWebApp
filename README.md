@@ -1,6 +1,7 @@
 # cs151autocriticspringwebapp
 
 Make sure that NodeJS is installed (16.13.1 LTS or above)
+
 Make sure that JDK 17 is installed
 
 Steps for cloning:
