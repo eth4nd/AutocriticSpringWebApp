@@ -2,10 +2,12 @@ package Model.Car;
 
 
 import Model.Database.BucketManager;
+import Model.Review.Review;
+import Model.Review.ReviewDatabase;
+import Model.Review.ReviewSystem;
 import Model.User.User;
 import Model.User.UserDatabase;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,10 +49,13 @@ public class CarUnitTest {
         assertEquals(1.8,testCar2.getAvgRating(),0.1);
         assertEquals(5,testCar2.getNumOfRatings(),0);
         assertEquals(9,testCar2.getTotalRating(),0);
-
-
-
-
+    }
+    @Test
+    public void testCarDatabaseDownloadCars(){
+        BucketManager b = new BucketManager();
+        CarDatabase carDatabase = new CarDatabase();
+        List<Car> listOfDownloadedCars = carDatabase.downloadCar("placeholder",b.getS3Database(),3);
+        assertTrue(listOfDownloadedCars.size()<=3);
     }
 
 }
