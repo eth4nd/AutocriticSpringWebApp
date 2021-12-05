@@ -1,11 +1,16 @@
 package Model.Car;
 
 
+import Model.Database.BucketManager;
 import Model.Review.Review;
+import Model.Review.ReviewDatabase;
 import Model.Review.ReviewSystem;
 import Model.User.User;
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarUnitTest {
@@ -62,6 +67,12 @@ public class CarUnitTest {
 //
 //    }
 //
-
+    @Test
+    public void testCarDatabaseDownloadCars(){
+        BucketManager b = new BucketManager();
+        CarDatabase carDatabase = new CarDatabase();
+        List<Car> listOfDownloadedCars = carDatabase.downloadCar("placeholder",b.getS3Database(),3);
+        assertTrue(listOfDownloadedCars.size()<=3);
+    }
 
 }

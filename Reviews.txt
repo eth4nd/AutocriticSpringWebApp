@@ -3,3 +3,4 @@
 ;2022 Tesla Model 3;max;test;5
 ;2022 Toyota Camry;max;test;5
 ;2022 Mercedes-Benz C-Class;max;test;5
+;2022 Honda Civic Type-R;hi;test56;4

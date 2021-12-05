@@ -2,12 +2,17 @@ package Model.Review;
 
 
 import Model.Car.Car;
+import Model.Database.BucketManager;
 import Model.User.User;
 
+import Model.User.UserDatabase;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class ReviewUnitTest {
@@ -35,6 +40,14 @@ public class ReviewUnitTest {
         assertEquals("reviewTest does not match with review",reviewTest, review.getReview());
         assertEquals("user does not match",review.getUser(),user);
         assertEquals("car does not match",review.getCar(),car);
-    }
 
+
+    }
+    @Test
+    public void testReviewDatabaseDownloadReview(){
+        BucketManager b = new BucketManager();
+        ReviewDatabase reviewDatabase = new ReviewDatabase();
+        List<Review> listOfDownloadedReviews = reviewDatabase.downloadReview("placeholder",b.getS3Database(),3);
+        assertTrue(listOfDownloadedReviews.size()<=3);
+    }
 }

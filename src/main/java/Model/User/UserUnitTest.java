@@ -45,7 +45,7 @@ public class UserUnitTest {
         BucketManager b = new BucketManager();
         UserDatabase userDatabase = new UserDatabase();
         List<User> listOfDownloadedUsers = userDatabase.downloadUser("placeholder",b.getS3Database(),3);
-        assertEquals(listOfDownloadedUsers.size(),3);
+        assertTrue(listOfDownloadedUsers.size()<=3);
     }
 /*
     @Test
