@@ -19,7 +19,7 @@ Steps for cloning:
 11. The web application should now launch in your browser.
 
 Steps for Demo:
-1. Make sure you completed the steps above to have the web application is running in your browser.
+1. Make sure you completed the steps above to have the web application running in your browser.
 1. Click the Sign Up button at the top right corner of the navigation bar.
 2. On the left side, sign up with any username and password.
 3. On the right side, log in with the same username and password you used to sign up.
