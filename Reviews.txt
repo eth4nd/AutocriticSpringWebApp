@@ -1,6 +1,5 @@
-;carName;username;review
-;2022 Honda Civic Type-R;hi;test
-;2022 Honda Civic Type-R;hi;test1
-;2022 Honda Civic Type-R;hi;test2
-;2022 Honda Civic Type-R;hi;test23
-;2022 Honda Civic Type-R;hi;test4
+;carName;username;review;rating
+;2022 Honda Civic Type-R;max;test;5
+;2022 Tesla Model 3;max;test;5
+;2022 Toyota Camry;max;test;5
+;2022 Mercedes-Benz C-Class;max;test;5

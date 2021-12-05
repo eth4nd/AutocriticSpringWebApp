@@ -5,11 +5,10 @@ import Model.Database.FileManager;
 import com.amazonaws.services.s3.AmazonS3;
 import interfaces.Model;
 import interfaces.ModelDatabase;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
+import java.io.*;
+
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -112,16 +111,8 @@ public class ReviewDatabase implements ModelDatabase{
             e.printStackTrace();
         }
     }
-
-    /**
-     * appends anything into the file
-     * @param carName name of the car
-     * @param username username of user
-     * @param review review for the car
-     * @param Filename file that is stored
-     * @param s3 the AmazonS3 bucket
-     */
-    public void append(String carName, String username, String review, String Filename,AmazonS3 s3) {
+    //append anything to file
+    public void append(String carName, String username, String review, String rating, String Filename,AmazonS3 s3) {
         FileManager fm = new FileManager();
         BufferedWriter out = null;
         try{
@@ -132,7 +123,7 @@ public class ReviewDatabase implements ModelDatabase{
 
             //write review into file
 
-            out.write(String.format(";%s;%s;%s\r\n",carName,username,review));
+            out.write(String.format(";%s;%s;%s;%s\r\n",carName,username,review,rating));
 
 
             //close loose ends
@@ -143,6 +134,7 @@ public class ReviewDatabase implements ModelDatabase{
             fm.insertFileIntoBucket(BucketManager.bucketName, ReviewDatabase.Filename,reviews);
         }catch (IOException e){
             e.printStackTrace();
+
         }
     }
 
@@ -166,8 +158,9 @@ public class ReviewDatabase implements ModelDatabase{
      */
     public List<Review> downloadReview(String Filename,AmazonS3 s3,int amount){
         String review = "";
-        String user = "";
+        String username = "";
         String car = "";
+        String rating = "";
         List<Review> listOfReviews = new ArrayList<>();
         System.out.println("Downloading " + amount+ " reviews " +  " from " + ReviewDatabase.LocalFilename);
 
@@ -185,17 +178,18 @@ public class ReviewDatabase implements ModelDatabase{
                 System.out.println("initializing vars...");
                 //initiate values to make review objects
                 car = sc.next();
-                user = sc.next();
+                username = sc.next();
                 review = sc.next();
+                rating = sc.next();
                 System.out.println("end of initializing vars...");
 //                System.out.println("Car: " +car);
 //                System.out.println("User: " +user);
 //                System.out.println("Review: " + review);
                 System.out.println("Adding car to list...");
-                listOfReviews.add(new Review(car,user,review,0));
+                listOfReviews.add(new Review(car,username,review,Double.parseDouble(rating)));
             }
-        }catch(IOException e){
-            e.printStackTrace();
+        }catch(FileNotFoundException e) {
+            downloadReviewFile(s3);
         }
         System.out.println("Returning list...");
         return listOfReviews;

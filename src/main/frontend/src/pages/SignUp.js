@@ -4,7 +4,7 @@ import {TextField} from '@material-ui/core'
 import Axios from "axios";
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-
+import { Redirect } from 'react-router-dom';
 const SignUp = ()=>{
     const [condition,setCondition] = useState([]);
   
@@ -42,6 +42,7 @@ const SignUp = ()=>{
         }).catch(err=>{
             console.log(err);
         })
+        alert("Sign up successful, please log in with these credientials");
     }
     function submitLogIn(d){
         //d.preventDefault();
@@ -50,6 +51,14 @@ const SignUp = ()=>{
         }).catch(err=>{
             console.log(err);
         })
+        if(!condition)
+        {
+            alert("wrong credientials, please create a new account or use correct credientials");
+        }
+        else
+        {
+            alert("login success: logged in as " + dataLogIn.username);
+        }
     }
     //when called, log out data sent
     function handle(e){
@@ -64,7 +73,15 @@ const SignUp = ()=>{
         setDataLogIn(newdata)
         console.log(newdata)
     }
+
+    function loginFailed()
+    {
+        console.log("condition = " + condition);
+        alert("Login Failed: Incorrect Credentials");
+        
+    }
     return (
+        
         <div className='signup'>
             <div className='headerContainer'>
                 <p>You are at the Sign Up page</p>

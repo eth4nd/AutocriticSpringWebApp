@@ -12,10 +12,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import interfaces.Model;
 import interfaces.ModelDatabase;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -153,8 +150,8 @@ public class UserDatabase implements ModelDatabase {
                 listOfUsers.add(new User(sc.next(),sc.next()));
 
             }
-        }catch(IOException e){
-            e.printStackTrace();
+        }catch(FileNotFoundException e){
+            downloadUserFile(s3);
         }
         return listOfUsers;
     }

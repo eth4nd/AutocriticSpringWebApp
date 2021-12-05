@@ -43,29 +43,25 @@ function Review() {
     
 
     return (
+        
         <div className='review'>
+            
             <div className='headerContainer'>
                 <p>You are at the Review page</p>
                 <h1>A review menu will be here</h1>
-                <ReviewTextArea/>
+                
             </div>
             <div className='carContainer'>
                 <div style={{backgroundImage:`url(${car.image})`}} className='carImage'/>
                 <h1>{car.name}</h1>
                 <h2>MSRP: ${car.price.toLocaleString()}</h2>
             </div>
+            <ReviewTextArea/>
             <div className='reviewsContainer'>
                 <h1>Reviews: </h1>
-                {car.reviews.map((review) => {
-                    return (
-                        <ReviewCard
-
-                            username={review.username}
-                            rating={review.rating}
-                            comment={review.comment}
+                        <ReviewCard 
+                            carName = {name}
                         />
-                    )
-                })}
             </div>
 
         </div>

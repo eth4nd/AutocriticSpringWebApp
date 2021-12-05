@@ -73,10 +73,13 @@ public class ReviewController {
         System.out.println("Username: " + user.getUsername());
         //System.out.println(data.get("car"));
         System.out.println("Car: " + carName);
+        System.out.println("rating: " + data.get("rating"));
         System.out.println(data.get("review"));
+        String rating = "";
+        rating += data.get("rating");
 
         reviewDatabase.append
-                (carName,user.getUsername(),(String)data.get("review"),"placeholder",b.getS3Database());
+                (carName,user.getUsername(),(String)data.get("review"),rating,"placeholder", b.getS3Database());
     }
 
     //grabs Review data from frontend

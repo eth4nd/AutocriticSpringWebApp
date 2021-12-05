@@ -1,5 +1,6 @@
 package Model.Database;
 
+import Model.Car.CarDatabase;
 import Model.Review.Review;
 import Model.Review.ReviewDatabase;
 import Model.User.User;
@@ -101,10 +102,12 @@ public class BucketManager {
         FileManager f = new FileManager();
         //File users = new File(UserDatabase.LocalFilename);
         //User user = new User("test","pass10");
+        File cars = new File(CarDatabase.LocalFilename);
+        File reviews = new File(ReviewDatabase.LocalFilename);
         UserDatabase userDatabase = new UserDatabase();
         ReviewDatabase reviewDatabase = new ReviewDatabase();
-
-
+        f.insertFileIntoBucket(BucketManager.bucketName,CarDatabase.Filename, cars);
+        f.insertFileIntoBucket(BucketManager.bucketName,ReviewDatabase.Filename,reviews);
         //reviewDatabase.downloadReviewFile(b.getS3Database());
         //reviewDatabase.append("carName","username","review","placeholder",b.getS3Database());
 //        File reviews = reviewDatabase.createLocalFile();
