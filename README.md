@@ -1,8 +1,10 @@
 # cs151autocriticspringwebapp
 
 Make sure that NodeJS is installed (16.13.1 LTS or above)
+https://nodejs.org/en/
 
 Make sure that JDK 17 is installed
+https://www.oracle.com/java/technologies/downloads/
 
 Steps for cloning:
 1. Clone source code from this GitHub repository to IntelliJ
@@ -16,13 +18,14 @@ Steps for cloning:
 9. In terminal, type "npm install react-scripts"
 10. *Allow access
 11. In terminal, type "npm start"
-11. The web application should now launch in your browser.
+11. The web application should now launch in your browser
 
 Steps for Demo:
-1. Make sure you completed the steps above to have the web application running in your browser.
-1. Click the Sign Up button at the top right corner of the navigation bar.
-2. On the left side, sign up with any username and password.
-3. On the right side, log in with the same username and password you used to sign up.
-3. It will take you back to the Home page. Choose any car within the list and click the Write a Review button.
-4. Write your review for the car in the submission box and choose any rating out of 5 stars.
-5. Once you click the submit button, refresh the page and your review should be added to the page with the other reviews. 
+1. Make sure you completed the steps above to have the web application running in your browser
+1. Click the Sign Up button at the top right corner of the navigation bar
+2. On the left side, sign up with any username and password
+3. On the right side, log in with the same username and password you used to sign up
+3. It will take you back to the Home page. Choose any car within the list and click the Write a Review button
+4. Write your review for the car in the submission box and choose any rating out of 5 stars
+5. Once you click the submit button, refresh the page and your review should be added to the page with the other reviews
+6. Click Autocritic in the upper left corner of the navigation bar to return back to the Home page
