@@ -1,9 +1,14 @@
 package Model.User;
 
 //import Model.User.LoginSystem;
+import Model.Database.BucketManager;
 import Model.User.User;
 import Model.User.UserDatabase;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 
@@ -19,26 +24,30 @@ public class UserUnitTest {
         assertEquals("userName should be user2", newUser2.getUsername(), "user2");
         assertEquals("password should be apples34", newUser2.getPassword(), "apples34");
     }
-/*
+
     @Test
-    public void testUserDatabase()
+    public void testUserDatabaseSearchUser()
     {
         User newUser1 = new User("user1", "password123");
         User newUser2 = new User("user2", "apples34");
         User newUser3 = new User("user3", "password456");
+        User searchUser = new User("user3", "password456");
+        List<User> listOfUsers = new ArrayList<>();
+        listOfUsers.add(newUser1);
+        listOfUsers.add(newUser2);
+        listOfUsers.add(newUser3);
         UserDatabase userDatabase = new UserDatabase();
-        userDatabase.storeUser(newUser1);
-        userDatabase.storeUser(newUser2);
-        assertTrue(userDatabase.findUser("user1"));
-        assertTrue(userDatabase.findUser("user2"));
-        userDatabase.storeUser(newUser1); // should return an error message indicating the user already exists
-        userDatabase.storeUser(newUser2);
-        assertFalse(userDatabase.findUser("user3"));
-        userDatabase.storeUser(newUser3);
-        assertTrue(userDatabase.findUser("user3"));
-
+        assertTrue(userDatabase.searchUser(searchUser,listOfUsers));
     }
 
+    @Test
+    public void testUserDatabaseDownloadUsers(){
+        BucketManager b = new BucketManager();
+        UserDatabase userDatabase = new UserDatabase();
+        List<User> listOfDownloadedUsers = userDatabase.downloadUser("placeholder",b.getS3Database(),3);
+        assertEquals(listOfDownloadedUsers.size(),3);
+    }
+/*
     @Test
     public void testUserLoginSystem()
     {
