@@ -1,110 +1,47 @@
 package Model.Car;
 
-import Model.Review.Review;
 import interfaces.Model;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  * Car model class that represents Car objects that will be stored in the car database.
  */
 public class Car implements Comparable<Car>, Model{
-    private int year;
-    private String make;
-    private String model;
-    private double MSRP;
-    private double averageRating;
-    private ArrayList<Review> carReviews;
+    private String carName;
+    private double avgRating;
+    private int numOfRatings;
+    private int totalRatings;
 
     /**
      * Constructor to create Car objects
-     * @param year The year the car was manufactured
-     * @param make The manufacturer of the car
-     * @param model The model of the car
-     * @param MSRP The average MSRP car is being sold for
+     * @param carName is the name of the car
+     * @param avgRating is the average rating for this car
+     * @param numOfRatings is total number of ratings on car
      */
-    public Car (int year, String make, String model, double MSRP)
+    public Car (String carName, double avgRating, int numOfRatings, int totalRatings)
     {
-        this.year = year;
-        this.make = make;
-        this.model = model;
-        this.MSRP = MSRP;
-        averageRating = 0;
-        carReviews = new ArrayList<>();
+        this.carName = carName;
+        this.avgRating = avgRating;
+        this.numOfRatings = numOfRatings;
+        this.totalRatings = totalRatings;
     }
 
-    /**
-     * Getter method for the year the car was manufactured
-     * @return year
-     */
-    public int getYear()
-    {
-        return this.year;
-    }
-
-    /**
-     * Getter method for make of the car object
-     * @return make
-     */
-    public String getMake()
-    {
-        return this.make;
-    }
-
-    /**
-     * Getter method for model of the car object
-     * @return model
-     */
-    public String getModel()
-    {
-        return this.model;
-    }
-
-    /**
-     * Getter method for MSRP of car object
-     * @return MSRP
-     */
-    public double getMSRP()
-    {
-        return this.MSRP;
-    }
-
-    /**
-     * Getter method for averageRating of car object
-     * @return averageRating
-     */
-    public double getAverageRating()
-    {
-        return this.averageRating;
-    }
-
-    /**
-     * Getter method for carReviews arraylist
-     * @return carReviews
-     */
-    public ArrayList<Review> getReviews()
-    {
-        return this.carReviews;
-    }
 
     /**
      * Creates a String representation of the Car object
-     * @return String representation containing 'year' 'make' and 'model' of the car object
-     * followed by a MSRP and Average Rating of the car
+     * @return String representation of car object
+     * returns ";carName;avgRating;numOfRatings;" which is our file storage format
      */
     @Override
     public String toString() {
-        return this.getYear() + " " + this.getMake() + " " + this.getModel() +
-                " MSRP: $" + this.getMSRP() + " Average Rating: " + this.getAverageRating();
+        return ";"+this.carName+";"+this.avgRating+";"+this.numOfRatings+";";
     }
 
     /**
      * Creates a String representation of the year, make, and model of the car
      * @return carName, which contains a String of year, make, and model of car
-     * separated by commas
      */
     public String carName(){
-        String carName = this.getYear() + "," + this.getMake() + "," + getModel();
         return carName;
     }
 
@@ -129,7 +66,7 @@ public class Car implements Comparable<Car>, Model{
     @Override
     public int hashCode()
     {
-        return Objects.hash(this.year, this.make, this.model);
+        return Objects.hash(this.carName,this.avgRating,this.numOfRatings);
     }
 
     /**
@@ -138,32 +75,26 @@ public class Car implements Comparable<Car>, Model{
      */
     public int compareTo(Car that)
     {
-        if(!this.make.equals(that.make))
-            return this.make.compareTo(that.make);
-        if(!this.model.equals(that.model))
-            return this.model.compareTo(that.model);
-        if(this.year != that.year)
-            return this.year - that.year;
+        if(!this.carName.equals(that.carName))
+            return this.carName.compareTo(that.carName);
+        if(this.avgRating != that.avgRating)
+            return (int) (this.avgRating - that.avgRating);
+        if(this.numOfRatings != that.numOfRatings)
+            return this.numOfRatings - that.numOfRatings;
         else
             return 0;
     }
 
-    /**
-     * Stores a review into carReviews and recalculates the averageRating
-     * @param review Review to be stored
-     */
-    public void storeReview(Review review)
-    {
-        carReviews.add(review);
-        calcAvgRating(review.getRating());
-    }
 
     /**
      * Recalculates averageRating with a newRating, called when a new review is added
+     * to this particular object
      * @param newRating The new rating from the review
      */
     private void calcAvgRating(double newRating)
     {
-        averageRating = (averageRating + newRating) / carReviews.size();
+        this.totalRatings += newRating;
+        this.numOfRatings++;
+        this.avgRating = totalRatings / numOfRatings;
     }
 }
